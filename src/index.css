@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Hide standard cursor only on desktop devices with pointer controls */
+@media (min-width: 769px) {
+  body {
+    cursor: none;
+  }
+}
+
+/* Styled light custom scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: currentColor;
+  opacity: 0.15;
+}
+
+/* Text outlining for futuristic displays */
+.stroke-text {
+  -webkit-text-stroke: 1px currentColor;
+}
+
+@keyframes progress-bar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(120%); }
+}
+
+.animate-progress-bar {
+  animation: progress-bar 2.2s infinite linear;
+}
+
