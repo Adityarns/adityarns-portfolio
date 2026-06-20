@@ -176,7 +176,7 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
             )}
 
             {downloadProgress === 'success' && (
-              <div className="border border-green-500 p-4 font-mono text-xs text-green-600 dark:text-green-400 space-y-2 max-w-md">
+              <div className="border border-[#14b8a6] p-4 font-mono text-xs text-[#14b8a6] space-y-2 max-w-md">
                 <div className="flex items-center space-x-2">
                   <Sparkles className="w-4 h-4" />
                   <span className="font-bold">DOSSIER BUFFER DEPLOYED</span>
@@ -241,7 +241,7 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
                 [ 02 // TECHNICAL MATRIX ]
               </span>
               <div className="flex items-center space-x-3">
-                <Code2 className="w-5 h-5 text-black dark:text-white animate-pulse" />
+                <Code2 className="w-5 h-5 text-[#14b8a6] animate-pulse" />
                 <h3 className="text-2xl md:text-3xl font-sans font-black tracking-tight uppercase leading-none">
                   {t.about.techStack}
                 </h3>
@@ -270,7 +270,7 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
                       : 'border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 bg-neutral-50/50 dark:bg-neutral-900/15 hover:bg-neutral-100/50 dark:hover:bg-neutral-900/30'
                   }`}
                 >
-                  <div className="flex items-center justify-between pointer-events-none mb-4">
+                  <div className="flex items-center pointer-events-none mb-4">
                     <div className="flex items-center space-x-3">
                       <div className={`p-2 rounded border transition-colors duration-300 ${
                         isSelected 
@@ -281,13 +281,12 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
                       </div>
                       <span className="font-sans font-extrabold text-sm tracking-tight">{skill.name}</span>
                     </div>
-                    <span className="font-mono text-[11px] font-bold opacity-80">{skill.level}%</span>
                   </div>
 
                   {/* Progress Line */}
                   <div className="w-full bg-neutral-200 dark:bg-neutral-800 h-[2px] overflow-hidden pointer-events-none">
                     <div
-                      className={`h-full transition-all duration-500 ${isSelected ? 'bg-white dark:bg-black' : 'bg-neutral-950 dark:bg-white'}`}
+                      className={`h-full transition-all duration-500 ${isSelected ? 'bg-white dark:bg-black' : 'bg-[#14b8a6]'}`}
                       style={{ width: `${skill.level}%` }}
                     />
                   </div>

@@ -115,7 +115,7 @@ export default function Contact({ currentLang, registerUserEvent }: ContactProps
 
           <div className="pt-6 space-y-4 font-mono text-[11px] text-gray-500">
             <div className="border border-black/10 dark:border-white/10 p-4 bg-gray-50 dark:bg-zinc-950 flex items-center space-x-3 max-w-md">
-              <ShieldCheck className="w-5 h-5 text-green-500 shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-[#14b8a6] shrink-0" />
               <div>
                 <p className="font-bold text-black dark:text-white uppercase">[ SECURITY INDEX ACTIVE ]</p>
                 <p className="opacity-75">All handshakes are processed via client local state storage matrices.</p>
@@ -223,7 +223,7 @@ export default function Contact({ currentLang, registerUserEvent }: ContactProps
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="p-4 border border-green-500 text-green-600 dark:text-green-400 font-mono text-xs flex items-start space-x-3"
+                  className="p-4 border border-[#14b8a6] text-[#14b8a6] font-mono text-xs flex items-start space-x-3"
                 >
                   <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" />
                   <div>

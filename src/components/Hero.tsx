@@ -172,7 +172,7 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
             </svg>
 
             {/* Glowing Backdrop Ray */}
-            <div className="absolute inset-2 bg-gradient-to-tr from-[#14b8a6]/5 to-[#14b8a6]/20 rounded-full blur-xl z-0 pointer-events-none" />
+            <div className="absolute inset-2 bg-gradient-to-tr from-[#14b8a6]/5 to-[#14b8a6]/20 dark:from-[#14b8a6]/5 dark:to-[#14b8a6]/20 rounded-full blur-xl z-0 pointer-events-none" />
 
             {/* Circular Image Container & Grayscale Hover Trigger */}
             <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-neutral-100 dark:border-zinc-900 shadow-2xl relative z-10 bg-neutral-200 dark:bg-zinc-800">

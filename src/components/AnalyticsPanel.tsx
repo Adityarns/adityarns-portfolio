@@ -124,8 +124,8 @@ export default function AnalyticsPanel({
               <p className="text-black dark:text-white font-bold uppercase">G-MONO-8378XF2</p>
             </div>
             <div className="flex items-center space-x-1.5">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
-              <span className="text-green-500 font-bold uppercase">{t.analytics.trackingActive}</span>
+              <span className="w-2 h-2 rounded-full bg-[#14b8a6] animate-ping" />
+              <span className="text-[#14b8a6] font-bold uppercase">{t.analytics.trackingActive}</span>
             </div>
           </div>
 
@@ -243,7 +243,7 @@ export default function AnalyticsPanel({
             {userEvents.map((evt, idx) => (
               <div key={idx} className="flex space-x-2 items-start leading-relaxed text-gray-500">
                 <span className="text-gray-400">[{evt.time}]</span>
-                <span className="text-green-600 dark:text-green-500">{evt.action.toUpperCase()}</span>
+                <span className="text-[#14b8a6]">{evt.action.toUpperCase()}</span>
                 {evt.meta && <span className="text-black dark:text-white font-bold">[{evt.meta}]</span>}
               </div>
             ))}
