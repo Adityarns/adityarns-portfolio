@@ -28,7 +28,7 @@ export const translations: Record<'en' | 'id', Translation> = {
       cvBtn: 'Download Resume.pdf',
     },
     projects: {
-      title: 'CURATED ARTIFACTS',
+      title: 'PROJECT',
       subtitle: 'A exhibition of hyper-optimized interactive systems.',
       all: 'ALL METRIC INDEX',
       viewCode: 'SOURCE_CODE',
@@ -110,7 +110,7 @@ export const translations: Record<'en' | 'id', Translation> = {
       cvBtn: 'Unduh Resume.pdf',
     },
     projects: {
-      title: 'ARTIFAK TERKURASI',
+      title: 'PROJECT',
       subtitle: 'Pameran sistem interaktif yang dioptimalkan secara mendalam.',
       all: 'INDEKS METRIK SEMUA',
       viewCode: 'SINTAKS_SUMBER',
@@ -182,6 +182,7 @@ export const projectsData: Project[] = [
     category: 'web',
     githubUrl: 'https://github.com/example/hyper-canvas',
     liveUrl: 'https://example.com/canvas',
+    imageUrl: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=800',
     keyHighlights: {
       en: [
         'Render overhead of less than 1.4ms per frame.',
@@ -209,6 +210,7 @@ export const projectsData: Project[] = [
     category: 'ai',
     githubUrl: 'https://github.com/example/neural-monitor',
     liveUrl: 'https://example.com/neural',
+    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800',
     keyHighlights: {
       en: [
         'Real-time weight matrix rendering with interactive node inspect panels.',
@@ -235,6 +237,7 @@ export const projectsData: Project[] = [
     tags: ['React Native', 'Geofencing', 'Rust Core', 'WebAssembly'],
     category: 'mobile',
     githubUrl: 'https://github.com/example/geofence-transceiver',
+    imageUrl: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800',
     keyHighlights: {
       en: [
         'Compiled via Rust targets directly for sub-millisecond edge calculation.',
@@ -262,6 +265,7 @@ export const projectsData: Project[] = [
     category: 'hardware',
     githubUrl: 'https://github.com/example/fractal-synth',
     liveUrl: 'https://example.com/synth',
+    imageUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800',
     keyHighlights: {
       en: [
         'Synthesizes dynamic sine-wave frequencies entirely native to the browser.',

@@ -14,6 +14,7 @@ export interface Project {
   category: 'web' | 'mobile' | 'ai' | 'hardware';
   liveUrl?: string;
   githubUrl?: string;
+  imageUrl?: string;
   keyHighlights: {
     en: string[];
     id: string[];

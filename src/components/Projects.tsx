@@ -42,7 +42,7 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-4">
             <span className="font-mono text-xs tracking-[0.25em] text-gray-500 dark:text-gray-400 block">
-              [ 02 // SELECTED_WORKS ]
+              [ 02 // PROJECT ]
             </span>
             <h2 className="text-3xl md:text-5xl font-sans font-black tracking-tight uppercase leading-none">
               {t.projects.title}
@@ -91,46 +91,95 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 onClick={() => handleCardClick(project)}
-                className="group relative border border-black/10 hover:border-black dark:border-white/10 dark:hover:border-white p-6 bg-transparent dark:bg-zinc-900/10 cursor-none transition-all duration-400 flex flex-col justify-between aspect-video pointer-events-auto"
+                className="group relative border border-black/10 hover:border-black dark:border-white/10 dark:hover:border-white bg-neutral-50/50 dark:bg-zinc-950/20 cursor-pointer overflow-hidden transition-all duration-400 flex flex-col justify-between pointer-events-auto shadow-sm hover:shadow-lg rounded-xl"
               >
-                {/* Diagonal subtle line decorations */}
-                <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none border-t border-r border-black/0 group-hover:border-black/30 dark:group-hover:border-white/30 transition-all duration-400" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none border-b border-l border-black/0 group-hover:border-black/30 dark:group-hover:border-white/30 transition-all duration-400" />
-
-                {/* Index metadata */}
-                <div className="flex items-center justify-between font-mono text-[10px] tracking-widest text-gray-400 pb-4 border-b border-dashed border-black/5 dark:border-white/5">
-                  <span className="flex items-center space-x-1.5 text-black dark:text-neutral-400">
-                    <Layers className="w-3 h-3 text-gray-500" />
-                    <span>SYS_INDEX_M_{indexLabel}</span>
-                  </span>
-                  <span>{project.category.toUpperCase()}</span>
+                {/* Image Section on Top */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-zinc-900">
+                  <img
+                    src={project.imageUrl || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800'}
+                    alt={project.title[currentLang]}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                  {/* Subtle index tag badge overlaid */}
+                  <div className="absolute top-3 left-3 px-2 py-1 bg-black/75 backdrop-blur-sm text-[9px] font-mono text-[#14b8a6] uppercase tracking-widest border border-[#14b8a6]/20 rounded-md">
+                    SYS_IDX_{indexLabel}
+                  </div>
                 </div>
 
-                {/* Title and Short Explanation */}
-                <div className="py-6 space-y-2">
-                  <h3 className="font-sans font-black text-lg md:text-xl tracking-tight text-black dark:text-white group-hover:tracking-wide transition-all uppercase leading-tight">
-                    {project.title[currentLang]}
-                  </h3>
-                  <p className="font-sans text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">
-                    {project.description[currentLang]}
-                  </p>
-                </div>
+                {/* Body Content */}
+                <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                  
+                  {/* Index metadata row */}
+                  <div className="flex items-center justify-between font-mono text-[9px] tracking-widest text-gray-400 pb-2 border-b border-dashed border-black/5 dark:border-white/5">
+                    <span className="flex items-center space-x-1 text-black dark:text-neutral-400">
+                      <Layers className="w-3 h-3 text-gray-500" />
+                      <span>SYS_REGISTRY //</span>
+                    </span>
+                    <span className="text-[#14b8a6] font-bold">{project.category.toUpperCase()}</span>
+                  </div>
 
-                {/* Tags bottom list summary */}
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-black/5 dark:border-white/5">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 bg-gray-100 dark:bg-zinc-950 text-gray-500 dark:text-neutral-400 text-[9px] font-mono tracking-wider border border-black/5 dark:border-white/5 uppercase"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {project.tags.length > 3 && (
-                    <span className="text-[9px] font-mono opacity-60 flex items-center pr-1 text-gray-400">
-                      +{project.tags.length - 3}
-                    </span>
-                  )}
+                  {/* Title and Short Explanation */}
+                  <div className="space-y-2">
+                    <h3 className="font-sans font-black text-lg tracking-tight text-black dark:text-white group-hover:text-[#14b8a6] transition-colors uppercase leading-tight">
+                      {project.title[currentLang]}
+                    </h3>
+                    <p className="font-sans text-xs text-gray-500 dark:text-gray-450 leading-relaxed line-clamp-3">
+                      {project.description[currentLang]}
+                    </p>
+                  </div>
+
+                  {/* Tags list */}
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 bg-gray-100 dark:bg-zinc-900 text-gray-500 dark:text-neutral-400 text-[9px] font-mono tracking-wider border border-black/5 dark:border-white/5 uppercase rounded-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tags.length > 3 && (
+                      <span className="text-[9px] font-mono opacity-60 flex items-center pr-1 text-gray-400">
+                        +{project.tags.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Immediate Action Link Buttons */}
+                  <div className="flex gap-2.5 pt-4 border-t border-black/5 dark:border-white/5 mt-auto">
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          registerUserEvent('LAUNCH_CODEBASE', project.id);
+                        }}
+                        className="flex-1 py-1.5 border border-black/20 hover:border-black dark:border-white/15 dark:hover:border-white text-black dark:text-white font-mono text-[9px] tracking-widest flex items-center justify-center space-x-1 transition-all hover:bg-neutral-50 dark:hover:bg-zinc-900 rounded-md"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        <span>{currentLang === 'id' ? 'SINTAKS' : 'SOURCE'}</span>
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          registerUserEvent('LAUNCH_MODULE_URL', project.id);
+                        }}
+                        className="flex-1 py-1.5 bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-100 font-mono text-[9px] tracking-widest font-bold flex items-center justify-center space-x-1 transition-all hover:shadow-md rounded-md"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>{currentLang === 'id' ? 'KUNJUNGI' : 'LAUNCH'}</span>
+                      </a>
+                    )}
+                  </div>
+
                 </div>
               </motion.div>
             );

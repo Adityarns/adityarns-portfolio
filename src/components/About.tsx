@@ -1,6 +1,20 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { ShieldAlert, Terminal, Code2, Cpu, Database, Blocks, Sparkles, Atom, Layers, Server } from 'lucide-react';
+import { 
+  ShieldAlert, 
+  Terminal, 
+  Code2, 
+  Cpu, 
+  Database, 
+  Blocks, 
+  Sparkles, 
+  Atom, 
+  Layers, 
+  Server, 
+  Briefcase, 
+  GraduationCap, 
+  Megaphone 
+} from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data';
 
@@ -9,6 +23,29 @@ interface AboutProps {
   registerUserEvent: (actionName: string, meta?: string) => void;
   scrollToSection: (id: string) => void;
 }
+
+// Custom Helper component to handle local image with Unsplash fallback gracefully
+const ImageWithFallback = ({ src, fallbackSrc, alt, className }: { src: string; fallbackSrc: string; alt: string; className?: string }) => {
+  const [imgSrc, setImgSrc] = useState(src);
+  const [hasError, setHasError] = useState(false);
+
+  const handleError = () => {
+    if (!hasError) {
+      setImgSrc(fallbackSrc);
+      setHasError(true);
+    }
+  };
+
+  return (
+    <img
+      src={imgSrc}
+      onError={handleError}
+      alt={alt}
+      className={className}
+      referrerPolicy="no-referrer"
+    />
+  );
+};
 
 export default function About({ currentLang, registerUserEvent, scrollToSection }: AboutProps) {
   const t = translations[currentLang];
@@ -27,37 +64,46 @@ export default function About({ currentLang, registerUserEvent, scrollToSection 
       year: '2026 - PRESENT',
       title: 'Fullstack Web Developer',
       company: 'Codingcamp Powered by DBS Foundation',
+      side: 'right',
       desc: {
         en: 'Advanced JavaScript, backend server architectures with Node.js & Express, relational modeling using PostgreSQL, clean code, and the capstone project Rekapin.',
         id: 'JavaScript tingkat lanjut, arsitektur server backend Node.js & Express, permodelan relasional dengan PostgreSQL, kode bersih, dan proyek capstone Rekapin.'
-      }
+      },
+      icon: Code2,
+      iconColor: 'text-[#14b8a6]',
+      iconBg: 'bg-[#14b8a6]/10 border-[#14b8a6]/20',
+      localImg: '/src/assets/images/dbs_foundation_camp.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800'
     },
     {
       year: '2025 - PRESENT',
       title: 'General Secretary',
       company: 'BSO Dimensi Web',
+      side: 'left',
       desc: {
-        en: 'Coordinated overall organization governance, acted as primary liaison for divisions, and structured systematic documentation archiving.',
-        id: 'Mengoordinasikan tata kelola organisasi, bertindak sebagai penghubung divisi eksternal & internal, serta menstruktur pengarsipan dokumen.'
-      }
+        en: 'Oversee administrative efficiency and organizational governance, managing documentation, coordination between divisions, and ensuring smooth operational workflows.',
+        id: 'Mengelola efisiensi administrasi dan tata kelola organisasi, mengarsipkan dokumen, mengoordinasikan antar divisi, dan memastikan kelancaran alur kerja operasional.'
+      },
+      icon: Briefcase,
+      iconColor: 'text-[#14b8a6]',
+      iconBg: 'bg-[#14b8a6]/10 border-[#14b8a6]/20',
+      localImg: '/src/assets/images/dimensi_web.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800'
     },
     {
-      year: '2024 - PRESENT',
-      title: 'S1 Computer Science (Informatics)',
-      company: 'Islamic State University (UIN) SGD Bandung',
+      year: '2025 - 2026',
+      title: 'Member',
+      company: 'KASTRAD HIMATIF',
+      side: 'right',
       desc: {
-        en: 'Undergraduate student of Informatics Engineering maintaining a high GPA of 3.91.',
-        id: 'Mahasiswa program studi S1 Teknik Informatika aktif yang mempertahankan IPK tinggi sebesar 3,91.'
-      }
-    },
-    {
-      year: '2024 - 2025',
-      title: 'Member of Kastrad',
-      company: 'HIMATIF UIN SGD Bandung',
-      desc: {
-        en: 'Provided academic advocacy and assistance to students alongside discussion forums on active engineering issues.',
-        id: 'Memberikan layanan advokasi akademis dan bantuan kepada mahasiswa serta memfasilitasi forum diskusi masalah informatika.'
-      }
+        en: 'Focused on student advocacy, strategically communicating student perspectives to department authorities to foster a better academic environment.',
+        id: 'Fokus pada advokasi mahasiswa, secara strategis mengomunikasikan perspektif mahasiswa ke birokrasi jurusan untuk menciptakan lingkungan akademis yang lebih baik.'
+      },
+      icon: Megaphone,
+      iconColor: 'text-rose-500 dark:text-rose-400',
+      iconBg: 'bg-rose-500/10 border-rose-500/20',
+      localImg: '/src/assets/images/himatif.jpg',
+      fallbackImg: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800'
     }
   ];
 
@@ -196,40 +242,165 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
           </div>
         </div>
 
-        {/* Right Side: Chronology Timeline (Educations & Experience) */}
-        <div id="about-chronology" className="lg:col-span-6 space-y-12">
-          {/* Chronology Matrices */}
-          <div className="space-y-6">
-            <h3 className="font-mono text-xs tracking-[0.2em] text-gray-500 dark:text-neutral-400 uppercase">
-              // {t.about.experience.toUpperCase()}
-            </h3>
+        {/* Right Side: Specifications / System Specs details */}
+        <div id="about-system-specs" className="lg:col-span-6 flex flex-col justify-center">
+          <div className="border border-black/10 dark:border-white/5 rounded-2xl p-6 md:p-8 bg-neutral-50/50 dark:bg-zinc-950/20 backdrop-blur-sm space-y-6">
+            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
+              <span className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">// CORE SYSTEM PARAMETERS</span>
+              <span className="font-mono text-[10px] text-[#14b8a6] font-bold">STATUS: STANDBY</span>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-y-4 gap-x-6">
+              <div>
+                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">// IDENTIFIER</p>
+                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight">Aditya Rahman Syach</p>
+              </div>
+              <div>
+                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">// SPECIALIZATION</p>
+                <p className="font-sans font-black text-sm text-[#14b8a6] leading-tight uppercase">Backend Architect</p>
+              </div>
+              <div>
+                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">// ACADEMIC LEVEL</p>
+                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">Informatics S1</p>
+              </div>
+              <div>
+                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">// INSTITUTION</p>
+                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">UIN SGD Bandung</p>
+              </div>
+              <div>
+                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">// SYSTEM METRIC (GPA)</p>
+                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight">3.91 / 4.00</p>
+              </div>
+              <div>
+                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">// PRIMARY focus</p>
+                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">Node.js & DevOps</p>
+              </div>
+            </div>
 
-            <div className="space-y-6 relative border-l border-black/10 dark:border-white/10 pl-6 ml-1">
-              {milestones.map((item, index) => (
-                <div key={index} className="relative group">
-                  {/* Timeline point bead */}
-                  <span className="absolute -left-[30px] top-1.5 w-2 h-2 bg-white dark:bg-black border-2 border-black dark:border-white transition-all group-hover:scale-150" />
-                  
-                  <div className="space-y-1.5">
-                    <span className="font-mono text-[10px] tracking-wider text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">
-                      {item.year}
-                    </span>
-                    <h4 className="font-sans font-bold text-sm tracking-tight text-black dark:text-white uppercase leading-none">
-                      {item.title}
-                    </h4>
-                    <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">
-                      {item.company}
-                    </p>
-                    <p className="font-sans text-xs text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg">
-                      {item.desc[currentLang]}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="pt-4 border-t border-black/10 dark:border-white/10 flex items-center space-x-3 text-[10px] font-mono text-gray-400">
+              <Cpu className="w-4 h-4 text-[#14b8a6] animate-pulse" />
+              <span>Dossier indexing active under secure compiler G-SYS-83</span>
             </div>
           </div>
         </div>
 
+      </div>
+
+      {/* Modern Alternating Timeline Section */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-24 pt-16 border-t border-black/10 dark:border-white/10">
+        <div className="space-y-1.5 mb-12">
+          <span className="font-mono text-[10px] tracking-[0.25em] text-[#14b8a6] uppercase font-bold block text-center md:text-left">
+            [ 03 // TIMELINE MATRIX ]
+          </span>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-center space-x-3 justify-center md:justify-start">
+              <Sparkles className="w-5 h-5 text-[#14b8a6]" />
+              <h3 className="text-2xl md:text-3xl font-sans font-black tracking-tight uppercase leading-none pb-1 border-b-2 border-black dark:border-white inline-block">
+                {t.about.experience}
+              </h3>
+            </div>
+            <p className="font-mono text-[10px] text-gray-450 dark:text-gray-400 max-w-sm text-center md:text-right">
+              * Dedicated timeline showcasing academic trajectory, core institutional roles, and technical frameworks.
+            </p>
+          </div>
+        </div>
+
+        {/* Timeline body container */}
+        <div className="relative mt-16">
+          {/* Central timeline line - only visible on md+ screen */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#14b8a6]/10 via-[#14b8a6]/40 to-[#14b8a6]/10 hidden md:block" />
+
+          <div className="space-y-16 md:space-y-24">
+            {milestones.map((item, index) => {
+              const isLeft = item.side === 'left';
+              const Icon = item.icon;
+              return (
+                <div key={index} className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
+                  
+                  {/* Glowing central timeline node bead on md+ only */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-12 w-4 h-4 rounded-full bg-white dark:bg-black border-4 border-[#14b8a6] shadow-[0_0_10px_rgba(20,184,166,0.6)] z-20 hidden md:block transition-transform duration-300 hover:scale-125" />
+
+                  {/* Left Column Box */}
+                  <div className={`w-full md:w-[46%] ${isLeft ? 'order-1' : 'order-2 md:order-1'}`}>
+                    {isLeft ? (
+                      /* Card Content */
+                      <div className="group bg-neutral-950 dark:bg-zinc-950 text-white rounded-2xl p-6 md:p-8 shadow-xl border border-white/5 hover:border-[#14b8a6]/30 transition-all duration-300 relative">
+                        <div className="flex items-start space-x-4">
+                          <div className={`p-3 rounded-full ${item.iconBg} ${item.iconColor} shrink-0`}>
+                            <Icon className="w-5 h-5 animate-pulse" />
+                          </div>
+                          <div className="space-y-1">
+                            <h4 className="font-sans font-black text-base text-white tracking-tight leading-tight uppercase">
+                              {item.title}
+                            </h4>
+                            <p className="font-sans font-bold text-xs text-[#14b8a6] uppercase tracking-wide">
+                              {item.company}
+                            </p>
+                            <p className="font-mono text-[10px] text-gray-400">
+                              {item.year}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="mt-4 font-sans text-xs md:text-sm text-neutral-300 leading-relaxed font-normal">
+                          {item.desc[currentLang]}
+                        </p>
+                      </div>
+                    ) : (
+                      /* Image Box */
+                      <div className="rounded-2xl overflow-hidden shadow-xl border border-black/5 dark:border-white/5 bg-neutral-100 dark:bg-neutral-900 group aspect-[4/3] md:aspect-[3/2]">
+                        <ImageWithFallback
+                          src={item.localImg}
+                          fallbackSrc={item.fallbackImg}
+                          alt={item.title}
+                          className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right Column Box */}
+                  <div className={`w-full md:w-[46%] ${isLeft ? 'order-2' : 'order-1 md:order-2'}`}>
+                    {isLeft ? (
+                      /* Image Box */
+                      <div className="rounded-2xl overflow-hidden shadow-xl border border-black/5 dark:border-white/5 bg-neutral-100 dark:bg-neutral-900 group aspect-[4/3] md:aspect-[3/2]">
+                        <ImageWithFallback
+                          src={item.localImg}
+                          fallbackSrc={item.fallbackImg}
+                          alt={item.title}
+                          className="w-full h-full object-cover grayscale transition-all duration-705 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    ) : (
+                      /* Card Content */
+                      <div className="group bg-neutral-950 dark:bg-zinc-950 text-white rounded-2xl p-6 md:p-8 shadow-xl border border-white/5 hover:border-[#14b8a6]/30 transition-all duration-300 relative">
+                        <div className="flex items-start space-x-4">
+                          <div className={`p-3 rounded-full ${item.iconBg} ${item.iconColor} shrink-0`}>
+                            <Icon className="w-5 h-5 animate-pulse" />
+                          </div>
+                          <div className="space-y-1">
+                            <h4 className="font-sans font-black text-base text-white tracking-tight leading-tight uppercase">
+                              {item.title}
+                            </h4>
+                            <p className="font-sans font-bold text-xs text-[#14b8a6] uppercase tracking-wide">
+                              {item.company}
+                            </p>
+                            <p className="font-mono text-[10px] text-gray-400">
+                              {item.year}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="mt-4 font-sans text-xs md:text-sm text-neutral-300 leading-relaxed font-normal">
+                          {item.desc[currentLang]}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Decoupled Interactive Technical Capabilities Section */}
