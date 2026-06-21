@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
-import { Terminal, Cpu, ArrowRight } from 'lucide-react';
-import { Language } from '../types';
-import { translations } from '../data';
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+import { Terminal, Cpu, ArrowRight } from "lucide-react";
+import { Language } from "../types";
+import { translations } from "../data";
 
 interface HeroProps {
   currentLang: Language;
@@ -10,20 +10,18 @@ interface HeroProps {
   registerUserEvent: (actionName: string, meta?: string) => void;
 }
 
-export default function Hero({ currentLang, scrollToSection, registerUserEvent }: HeroProps) {
+export default function Hero({
+  currentLang,
+  scrollToSection,
+  registerUserEvent,
+}: HeroProps) {
   const t = translations[currentLang];
-  
+
   // Dynamic typing simulator for developer roles starting with "Da"
-  const [typedRole, setTypedRole] = useState('Da');
-  
+  const [typedRole, setTypedRole] = useState("Da");
+
   useEffect(() => {
-    const roles = [
-      'Backend Engineer',
-      'Data Scientist',
-      'Developer',
-      'Designer',
-      'Data Architect'
-    ];
+    const roles = ["Backend Engineer", "Backend Developer"];
     let roleIdx = 0;
     let charIdx = 2; // start after 'Da'
     let isDeleting = false;
@@ -31,7 +29,7 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
 
     const tick = () => {
       const fullWord = roles[roleIdx];
-      
+
       if (isDeleting) {
         setTypedRole(fullWord.substring(0, charIdx));
         charIdx--;
@@ -45,7 +43,8 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
       if (!isDeleting && charIdx > fullWord.length) {
         isDeleting = true;
         delta = 2000; // Pause at full word
-      } else if (isDeleting && charIdx < 2) { // backtrack until "Da"
+      } else if (isDeleting && charIdx < 2) {
+        // backtrack until "Da"
         isDeleting = false;
         roleIdx = (roleIdx + 1) % roles.length;
         delta = 500; // brief pause before typing next
@@ -68,10 +67,11 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
 
       {/* Hero Visual Layout Grid Container */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center pointer-events-none">
-        
         {/* Left Side: Modern Typography Profile */}
-        <div id="hero-left-content" className="flex flex-col items-start space-y-5 md:space-y-6 pointer-events-auto text-left order-2 lg:order-1 pt-4 lg:pt-0">
-          
+        <div
+          id="hero-left-content"
+          className="flex flex-col items-start space-y-5 md:space-y-6 pointer-events-auto text-left order-2 lg:order-1 pt-4 lg:pt-0"
+        >
           {/* Welcome Tag Accent and Status indicator */}
           <motion.div
             initial={{ opacity: 0, y: -15 }}
@@ -91,7 +91,7 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
             initial={{ opacity: 0, scale: 0.99 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-black tracking-tight leading-none text-neutral-900 dark:text-white"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans font-black tracking-tight leading-none text-neutral-900 dark:text-white"
           >
             Aditya Rahman S.
           </motion.h1>
@@ -114,7 +114,9 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
             transition={{ duration: 0.8, delay: 0.25 }}
             className="text-neutral-500 dark:text-neutral-400 text-sm md:text-base font-sans max-w-md leading-relaxed pr-4"
           >
-            Informatics student with a passion for backend development. Driven by deep curiosity and a passion for clean code, I build scalable server-side systems and robust database architectures.
+            Computer Science student with a passion for backend development.
+            Driven by deep curiosity and a passion for clean code, I build
+            scalable server-side systems and robust database architectures.
           </motion.p>
 
           {/* Interactive CTAs styled like Screenshot */}
@@ -127,28 +129,31 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
             <button
               id="hero-cta-btn"
               onClick={() => {
-                registerUserEvent('CLICK_HERO_ABOUT_ME');
-                scrollToSection('about');
+                registerUserEvent("CLICK_HERO_ABOUT_ME");
+                scrollToSection("about");
               }}
-              className="px-6 py-2.5 bg-neutral-950 hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-150 text-white font-sans text-xs md:text-sm font-bold tracking-tight rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] focus:outline-none cursor-pointer"
+              className="px-6 py-2.5 bg-neutral-950 hover:bg-[#14b8a6] dark:bg-white dark:text-black dark:hover:bg-[#14b8a6] text-white font-sans text-xs md:text-sm font-bold tracking-tight rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] focus:outline-none cursor-pointer"
             >
               About Me
             </button>
             <button
               id="hero-downscroll-btn"
               onClick={() => {
-                registerUserEvent('CLICK_HERO_PORTFOLIO');
-                scrollToSection('projects');
+                registerUserEvent("CLICK_HERO_PORTFOLIO");
+                scrollToSection("projects");
               }}
-              className="px-6 py-2.5 bg-neutral-950 hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-154 text-white font-sans text-xs md:text-sm font-bold tracking-tight rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] focus:outline-none cursor-pointer"
+              className="px-6 py-2.5 bg-neutral-950 hover:bg-[#14b8a6] dark:bg-white dark:text-black dark:hover:bg-[#14b8a6] text-white font-sans text-xs md:text-sm font-bold tracking-tight rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] focus:outline-none cursor-pointer"
             >
-              My Project
+              My Projects
             </button>
           </motion.div>
         </div>
 
         {/* Right Side: Circular Portrait with Hand-drawn Glowing Wavy Outline Ring */}
-        <div id="hero-right-content" className="flex items-center justify-center pointer-events-auto order-1 lg:order-2 py-6 lg:py-0">
+        <div
+          id="hero-right-content"
+          className="flex items-center justify-center pointer-events-auto order-1 lg:order-2 py-6 lg:py-0"
+        >
           <motion.div
             initial={{ opacity: 0, scale: 0.93 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -156,9 +161,9 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
             className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-85 md:h-85 flex items-center justify-center"
           >
             {/* The Wavy Hand-Drawn Glowing Active Ring SVG (custom-styled irregular wave imitating screenshot) */}
-            <svg 
-              className="absolute w-[108%] h-[108%] text-[#14b8a6] animate-[spin_50s_linear_infinite]" 
-              viewBox="0 0 200 200" 
+            <svg
+              className="absolute w-[108%] h-[108%] text-[#14b8a6] animate-[spin_50s_linear_infinite]"
+              viewBox="0 0 200 200"
               fill="none"
             >
               <path
@@ -177,18 +182,18 @@ export default function Hero({ currentLang, scrollToSection, registerUserEvent }
             {/* Circular Image Container & Grayscale Hover Trigger */}
             <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-neutral-100 dark:border-zinc-900 shadow-2xl relative z-10 bg-neutral-200 dark:bg-zinc-800">
               <img
-                src="/src/assets/images/aditya_futuristic_portrait_1781882689143.jpg"
+                src="/src/assets/images/Adit.png"
                 alt="Aditya Rahman S."
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover grayscale brightness-110 contrast-[1.03] hover:grayscale-0 transition-all duration-500 scale-102 hover:scale-100 cursor-crosshair"
                 onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600";
+                  e.currentTarget.src =
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600";
                 }}
               />
             </div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

@@ -1,35 +1,48 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Search, Compass, Github, ExternalLink, X, Cpu, Layers } from 'lucide-react';
-import { Language, Project } from '../types';
-import { translations, projectsData } from '../data';
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Search,
+  Compass,
+  Github,
+  ExternalLink,
+  X,
+  Cpu,
+  Layers,
+} from "lucide-react";
+import { Language, Project } from "../types";
+import { translations, projectsData } from "../data";
 
 interface ProjectsProps {
   currentLang: Language;
   registerUserEvent: (actionName: string, meta?: string) => void;
 }
 
-export default function Projects({ currentLang, registerUserEvent }: ProjectsProps) {
+export default function Projects({
+  currentLang,
+  registerUserEvent,
+}: ProjectsProps) {
   const t = translations[currentLang];
-  const [activeCategory, setActiveCategory] = useState<'all' | 'web' | 'mobile' | 'ai' | 'hardware'>('all');
+  const [activeCategory, setActiveCategory] = useState<
+    "all" | "web" | "mobile" | "ai" | "hardware"
+  >("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categoriesSet: ('all' | 'web' | 'mobile' | 'ai' | 'hardware')[] = [
-    'all',
-    'web',
-    'ai',
-    'mobile',
-    'hardware',
+  const categoriesSet: ("all" | "web" | "mobile" | "ai" | "hardware")[] = [
+    "all",
+    "web",
+    "ai",
+    "mobile",
+    "hardware",
   ];
 
   const filteredProjects = projectsData.filter((p) => {
-    if (activeCategory === 'all') return true;
+    if (activeCategory === "all") return true;
     return p.category === activeCategory;
   });
 
   const handleCardClick = (project: Project) => {
     setSelectedProject(project);
-    registerUserEvent('VIEW_PROJECT_DETAILS', project.id);
+    registerUserEvent("VIEW_PROJECT_DETAILS", project.id);
   };
 
   return (
@@ -41,9 +54,6 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-4">
-            <span className="font-mono text-xs tracking-[0.25em] text-gray-500 dark:text-gray-400 block">
-              [ 02 // PROJECT ]
-            </span>
             <h2 className="text-3xl md:text-5xl font-sans font-black tracking-tight uppercase leading-none">
               {t.projects.title}
             </h2>
@@ -60,15 +70,15 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                 id={`cat-tab-${cat}`}
                 onClick={() => {
                   setActiveCategory(cat);
-                  registerUserEvent('FILTER_PROJECTS', cat);
+                  registerUserEvent("FILTER_PROJECTS", cat);
                 }}
                 className={`px-4 py-2 text-[10px] font-mono tracking-widest uppercase transition-all duration-300 focus:outline-none ${
                   activeCategory === cat
-                    ? 'bg-black text-white dark:bg-white dark:text-black font-bold'
-                    : 'text-gray-500 hover:text-black dark:text-neutral-400 dark:hover:text-white'
+                    ? "bg-black text-white dark:bg-white dark:text-black font-bold"
+                    : "text-gray-500 hover:text-black dark:text-neutral-400 dark:hover:text-white"
                 }`}
               >
-                {cat === 'all' ? t.projects.all : cat.toUpperCase()}
+                {cat === "all" ? t.projects.all : cat.toUpperCase()}
               </button>
             ))}
           </div>
@@ -96,7 +106,10 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                 {/* Image Section on Top */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-zinc-900">
                   <img
-                    src={project.imageUrl || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800'}
+                    src={
+                      project.imageUrl ||
+                      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
+                    }
                     alt={project.title[currentLang]}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
@@ -109,14 +122,15 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
 
                 {/* Body Content */}
                 <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
-                  
                   {/* Index metadata row */}
                   <div className="flex items-center justify-between font-mono text-[9px] tracking-widest text-gray-400 pb-2 border-b border-dashed border-black/5 dark:border-white/5">
                     <span className="flex items-center space-x-1 text-black dark:text-neutral-400">
                       <Layers className="w-3 h-3 text-gray-500" />
                       <span>SYS_REGISTRY //</span>
                     </span>
-                    <span className="text-[#14b8a6] font-bold">{project.category.toUpperCase()}</span>
+                    <span className="text-[#14b8a6] font-bold">
+                      {project.category.toUpperCase()}
+                    </span>
                   </div>
 
                   {/* Title and Short Explanation */}
@@ -155,12 +169,14 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                         rel="noopener noreferrer"
                         onClick={(e) => {
                           e.stopPropagation();
-                          registerUserEvent('LAUNCH_CODEBASE', project.id);
+                          registerUserEvent("LAUNCH_CODEBASE", project.id);
                         }}
                         className="flex-1 py-1.5 border border-black/20 hover:border-black dark:border-white/15 dark:hover:border-white text-black dark:text-white font-mono text-[9px] tracking-widest flex items-center justify-center space-x-1 transition-all hover:bg-neutral-50 dark:hover:bg-zinc-900 rounded-md"
                       >
                         <Github className="w-3.5 h-3.5" />
-                        <span>{currentLang === 'id' ? 'SINTAKS' : 'SOURCE'}</span>
+                        <span>
+                          {currentLang === "id" ? "SINTAKS" : "SOURCE"}
+                        </span>
                       </a>
                     )}
                     {project.liveUrl && (
@@ -170,16 +186,17 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                         rel="noopener noreferrer"
                         onClick={(e) => {
                           e.stopPropagation();
-                          registerUserEvent('LAUNCH_MODULE_URL', project.id);
+                          registerUserEvent("LAUNCH_MODULE_URL", project.id);
                         }}
                         className="flex-1 py-1.5 bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-100 font-mono text-[9px] tracking-widest font-bold flex items-center justify-center space-x-1 transition-all hover:shadow-md rounded-md"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
-                        <span>{currentLang === 'id' ? 'KUNJUNGI' : 'LAUNCH'}</span>
+                        <span>
+                          {currentLang === "id" ? "KUNJUNGI" : "LAUNCH"}
+                        </span>
                       </a>
                     )}
                   </div>
-
                 </div>
               </motion.div>
             );
@@ -215,9 +232,13 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
 
                 {/* Index / Category header row */}
                 <div className="flex items-center space-x-3 font-mono text-[10px] tracking-widest text-gray-400 pb-3 border-b border-black/10 dark:border-white/10">
-                  <span className="text-black dark:text-white uppercase font-bold">[ SYSTEM INSPECTOR ]</span>
+                  <span className="text-black dark:text-white uppercase font-bold">
+                    [ SYSTEM INSPECTOR ]
+                  </span>
                   <span>//</span>
-                  <span>{selectedProject.category.toUpperCase()} MATRIX_REGISTRY</span>
+                  <span>
+                    {selectedProject.category.toUpperCase()} MATRIX_REGISTRY
+                  </span>
                 </div>
 
                 {/* Core Title Details */}
@@ -237,12 +258,19 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                     <span>// {t.projects.highlights.toUpperCase()}</span>
                   </h4>
                   <ul className="grid grid-cols-1 md:grid-cols-1 gap-2 border border-black/5 dark:border-white/5 p-4 bg-gray-50 dark:bg-zinc-950 font-mono text-xs">
-                    {selectedProject.keyHighlights[currentLang].map((highlight, hidx) => (
-                      <li key={hidx} className="flex items-start space-x-3 leading-relaxed text-gray-500 dark:text-gray-400">
-                        <span className="text-black dark:text-white shrink-0">[{hidx+1}]</span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
+                    {selectedProject.keyHighlights[currentLang].map(
+                      (highlight, hidx) => (
+                        <li
+                          key={hidx}
+                          className="flex items-start space-x-3 leading-relaxed text-gray-500 dark:text-gray-400"
+                        >
+                          <span className="text-black dark:text-white shrink-0">
+                            [{hidx + 1}]
+                          </span>
+                          <span>{highlight}</span>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </div>
 
@@ -271,7 +299,9 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                       href={selectedProject.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => registerUserEvent('LAUNCH_CODEBASE', selectedProject.id)}
+                      onClick={() =>
+                        registerUserEvent("LAUNCH_CODEBASE", selectedProject.id)
+                      }
                       className="px-5 py-2.5 bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 font-mono text-[11px] tracking-widest font-bold flex items-center space-x-2 transition-all"
                     >
                       <Github className="w-4 h-4" />
@@ -283,7 +313,12 @@ export default function Projects({ currentLang, registerUserEvent }: ProjectsPro
                       href={selectedProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => registerUserEvent('LAUNCH_MODULE_URL', selectedProject.id)}
+                      onClick={() =>
+                        registerUserEvent(
+                          "LAUNCH_MODULE_URL",
+                          selectedProject.id,
+                        )
+                      }
                       className="px-5 py-2.5 border border-black/20 hover:border-black dark:border-white/10 dark:hover:border-white text-black dark:text-white font-mono text-[11px] tracking-widest flex items-center space-x-2 transition-all"
                     >
                       <ExternalLink className="w-4 h-4" />

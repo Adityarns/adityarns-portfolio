@@ -1,4 +1,4 @@
-export type Language = 'en' | 'id';
+export type Language = "en" | "id";
 
 export interface Project {
   id: string;
@@ -11,7 +11,7 @@ export interface Project {
     id: string;
   };
   tags: string[];
-  category: 'web' | 'mobile' | 'ai' | 'hardware';
+  category: "web" | "mobile" | "ai" | "hardware";
   liveUrl?: string;
   githubUrl?: string;
   imageUrl?: string;
@@ -46,9 +46,18 @@ export interface AnalyticsStats {
   uniqueClicks: number;
   bounceRate: number;
   durationAvg: number;
-  pagePerformance: { path: string; count: number; name: { en: string; id: string } }[];
-  visitorOrigins: { country: string; flag: string; count: number; ratio: number }[];
-  liveStatus: 'SYNCING' | 'IDLE' | 'ACTIVE';
+  pagePerformance: {
+    path: string;
+    count: number;
+    name: { en: string; id: string };
+  }[];
+  visitorOrigins: {
+    country: string;
+    flag: string;
+    count: number;
+    ratio: number;
+  }[];
+  liveStatus: "SYNCING" | "IDLE" | "ACTIVE";
 }
 
 export interface PushNotificationItem {
@@ -61,9 +70,26 @@ export interface PushNotificationItem {
     en: string;
     id: string;
   };
-  category: 'content' | 'project' | 'status';
+  category: "content" | "project" | "status";
   timestamp: string;
   isRead: boolean;
+}
+
+export interface ExperienceItem {
+  id: string; // Tambahkan ID jika diperlukan untuk key di React loop
+  year: string;
+  title: string;
+  company: string;
+  side: "left" | "right";
+  desc: {
+    en: string;
+    id: string;
+  };
+  icon: React.ComponentType<any> | string; // Mengizinkan komponen Lucide ATAU path string logo gambar
+  iconColor: string;
+  iconBg: string;
+  localImg: string;
+  fallbackImg: string;
 }
 
 export interface Translation {
