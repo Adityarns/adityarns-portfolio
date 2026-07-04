@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 import { Terminal, Cpu, ArrowRight } from "lucide-react";
 import { Language } from "../types";
 import { translations } from "../data";
-  
-const aditImage = new URL("../assets/images/Adit.png", import.meta.url).href;
+
+const aditImage = new URL("./assets/images/Adit.png", import.meta.url).href;
 
 interface HeroProps {
   currentLang: Language;

@@ -251,7 +251,7 @@ export const projectsData: Project[] = [
     category: "web",
     githubUrl: "https://github.com/FaizErsaM/UAS-PBO-Productivity.git",
     liveUrl: "https://heyjipro.vercel.app/",
-    imageUrl: resolveAsset("../assets/images/heyjipro.png"),
+    imageUrl: resolveAsset("./assets/images/heyjipro.png"),
     keyHighlights: {
       en: [
         "Designed RESTful API architecture using Java Spring Boot for productivity management features.",
