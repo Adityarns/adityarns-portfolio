@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Terminal, Cpu, ArrowRight } from "lucide-react";
 import { Language } from "../types";
 import { translations } from "../data";
-import aditImage from "../assets/images/adit.png";
+import aditImage from "../assets/images/Adit.png";
 
 interface HeroProps {
   currentLang: Language;
