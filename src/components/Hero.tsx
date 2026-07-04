@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { Terminal, Cpu, ArrowRight } from "lucide-react";
 import { Language } from "../types";
 import { translations } from "../data";
+  
+const aditImage = new URL("../assets/images/Adit.png", import.meta.url).href;
 
 interface HeroProps {
   currentLang: Language;
@@ -182,7 +184,7 @@ export default function Hero({
             {/* Circular Image Container & Grayscale Hover Trigger */}
             <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-neutral-100 dark:border-zinc-900 shadow-2xl relative z-10 bg-neutral-200 dark:bg-zinc-800">
               <img
-                src="/src/assets/images/Adit.png"
+                src={aditImage}
                 alt="Aditya Rahman S."
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover grayscale brightness-110 contrast-[1.03] hover:grayscale-0 transition-all duration-500 scale-102 hover:scale-100 cursor-crosshair"

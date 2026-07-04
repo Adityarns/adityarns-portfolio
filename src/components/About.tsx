@@ -25,6 +25,8 @@ interface AboutProps {
   scrollToSection: (id: string) => void;
 }
 
+const resolveAsset = (path: string) => new URL(path, import.meta.url).href;
+
 // Custom Helper component to handle local image with Unsplash fallback gracefully
 const ImageWithFallback = ({
   src,
@@ -158,7 +160,7 @@ export default function About({
       icon: Code2,
       iconColor: "text-[#14b8a6]",
       iconBg: "bg-[#14b8a6]/10 border-[#14b8a6]/20",
-      localImg: "/src/assets/images/DBS.jpeg",
+      localImg: resolveAsset("../assets/images/DBS.jpeg"),
       fallbackImg:
         "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
     },
@@ -171,10 +173,10 @@ export default function About({
         en: "Oversee administrative efficiency and organizational governance, managing documentation, coordination between divisions, and ensuring smooth operational workflows.",
         id: "Mengelola efisiensi administrasi dan tata kelola organisasi, mengarsipkan dokumen, mengoordinasikan antar divisi, dan memastikan kelancaran alur kerja operasional.",
       },
-      icon: "/src/assets/experience/bsoLogo.png",
+      icon: resolveAsset("../assets/experience/bsoLogo.png"),
       iconColor: "text-[#14b8a6]",
       iconBg: "bg-[#14b8a6]/10 border-[#14b8a6]/20",
-      localImg: "/src/assets/experience/bso.jpeg",
+      localImg: resolveAsset("../assets/experience/bso.jpeg"),
       fallbackImg:
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
     },
@@ -187,10 +189,10 @@ export default function About({
         en: "Focused on student advocacy, strategically communicating student perspectives to department authorities to foster a better academic environment.",
         id: "Fokus pada advokasi mahasiswa, secara strategis mengomunikasikan perspektif mahasiswa ke birokrasi jurusan untuk menciptakan lingkungan akademis yang lebih baik.",
       },
-      icon: "/src/assets/experience/HimatifLogo.png",
+      icon: resolveAsset("../assets/experience/HimatifLogo.png"),
       iconColor: "text-rose-500 dark:text-rose-400",
       iconBg: "bg-rose-500/10 border-rose-500/20",
-      localImg: "/src/assets/experience/himatif.jpeg",
+      localImg: resolveAsset("../assets/experience/himatif.jpeg"),
       fallbackImg:
         "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800",
     },
