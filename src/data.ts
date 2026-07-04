@@ -1,6 +1,6 @@
 import { Translation, Project, BlogPost } from "./types";
-
-const resolveAsset = (path: string) => new URL(path, import.meta.url).href;
+import rekapinImg from "./assets/images/rekapin.png";
+import heyjiproImg from "./assets/images/heyjipro.png";
 
 export const translations: Record<"en" | "id", Translation> = {
   en: {
@@ -205,7 +205,7 @@ export const projectsData: Project[] = [
     category: "web",
     githubUrl: "https://github.com/Adityarns/Capstone-Project-Rekapin.git",
     liveUrl: "https://capstone-project-rekapin.vercel.app",
-    imageUrl: resolveAsset("../assets/images/rekapin.png"),
+    imageUrl: rekapinImg,
     keyHighlights: {
       en: [
         "Architected a scalable RESTful API and relational database using Node.js, Express, and PostgreSQL.",
@@ -251,7 +251,7 @@ export const projectsData: Project[] = [
     category: "web",
     githubUrl: "https://github.com/FaizErsaM/UAS-PBO-Productivity.git",
     liveUrl: "https://heyjipro.vercel.app/",
-    imageUrl: resolveAsset("./assets/images/heyjipro.png"),
+    imageUrl: heyjiproImg,
     keyHighlights: {
       en: [
         "Designed RESTful API architecture using Java Spring Boot for productivity management features.",

@@ -18,6 +18,11 @@ import {
 import { Language } from "../types";
 import { translations } from "../data";
 import StackIcon, { type IconName } from "tech-stack-icons";
+import dbsImg from "../assets/images/DBS.jpeg";
+import bsoLogo from "../assets/experience/bsoLogo.png";
+import bsoImg from "../assets/experience/bso.jpeg";
+import himatifLogo from "../assets/experience/HimatifLogo.png";
+import himatifImg from "../assets/experience/himatif.jpeg";
 
 interface AboutProps {
   currentLang: Language;
@@ -160,7 +165,7 @@ export default function About({
       icon: Code2,
       iconColor: "text-[#14b8a6]",
       iconBg: "bg-[#14b8a6]/10 border-[#14b8a6]/20",
-      localImg: resolveAsset("./assets/images/DBS.jpeg"),
+      localImg: dbsImg,
       fallbackImg:
         "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
     },
@@ -173,10 +178,10 @@ export default function About({
         en: "Oversee administrative efficiency and organizational governance, managing documentation, coordination between divisions, and ensuring smooth operational workflows.",
         id: "Mengelola efisiensi administrasi dan tata kelola organisasi, mengarsipkan dokumen, mengoordinasikan antar divisi, dan memastikan kelancaran alur kerja operasional.",
       },
-      icon: resolveAsset("./assets/experience/bsoLogo.png"),
+      icon: bsoLogo,
       iconColor: "text-[#14b8a6]",
       iconBg: "bg-[#14b8a6]/10 border-[#14b8a6]/20",
-      localImg: resolveAsset("./assets/experience/bso.jpeg"),
+      localImg: bsoImg,
       fallbackImg:
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
     },
@@ -189,10 +194,10 @@ export default function About({
         en: "Focused on student advocacy, strategically communicating student perspectives to department authorities to foster a better academic environment.",
         id: "Fokus pada advokasi mahasiswa, secara strategis mengomunikasikan perspektif mahasiswa ke birokrasi jurusan untuk menciptakan lingkungan akademis yang lebih baik.",
       },
-      icon: resolveAsset("./assets/experience/HimatifLogo.png"),
+      icon: himatifLogo,
       iconColor: "text-rose-500 dark:text-rose-400",
       iconBg: "bg-rose-500/10 border-rose-500/20",
-      localImg: resolveAsset("./assets/experience/himatif.jpeg"),
+      localImg: himatifImg,
       fallbackImg:
         "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800",
     },
