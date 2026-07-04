@@ -1,5 +1,5 @@
 {
-  "name": "Futuristic Monochrome Portfolio",
+  "name": "Adityarns Portfolio",
   "description": "An interactive, futuristic monochrome portfolio featuring responsive scroll animations, custom particle effects, lightweight dual-language blog, full visitor analytics dashboard, and push notification controls.",
   "requestFramePermissions": ["notifications"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

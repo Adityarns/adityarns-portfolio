@@ -180,19 +180,6 @@ export default function Contact({
                   linkedin.com/in/aditya-rahman-syach
                 </a>
               </div>
-              <div>
-                <p className="text-gray-400 uppercase text-[9px]">
-                  // PORTFOLIO NODE
-                </p>
-                <a
-                  href="https://www.situssupercanggih.co.id"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#14b8a6] font-mono font-bold text-[12px] hover:underline block"
-                >
-                  situssupercanggih.co.id
-                </a>
-              </div>
             </div>
           </div>
         </div>

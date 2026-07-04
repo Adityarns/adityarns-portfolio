@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Language } from "../types";
 import { translations } from "../data";
+import StackIcon, { type IconName } from "tech-stack-icons";
 
 interface AboutProps {
   currentLang: Language;
@@ -63,39 +64,84 @@ export default function About({
   scrollToSection,
 }: AboutProps) {
   const t = translations[currentLang];
-  const [downloadProgress, setDownloadProgress] = useState<
-    "idle" | "compiling" | "success"
-  >("idle");
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
-  const skills = [
+  const skills: Array<{
+    name: string;
+    category: string;
+    level: number;
+    iconName: IconName;
+    desc: string;
+  }> = [
     {
-      name: "TypeScript / React",
-      category: "frontend",
+      name: "JavaScript",
+      category: "language",
       level: 95,
-      icon: Atom,
+      iconName: "js" as IconName,
+      desc: "ES6+, async/await workflows, prototypical inheritance, and advanced DOM manipulation.",
+    },
+    {
+      name: "TypeScript",
+      category: "language",
+      level: 95,
+      iconName: "typescript" as IconName,
+      desc: "Static type checking, advanced generics, and seamless integration with React and Node.js.",
+    },
+    {
+      name: "Java",
+      category: "language",
+      level: 60,
+      iconName: "java" as IconName,
+      desc: "Object-oriented programming, multithreading, and seamless integration with web technologies.",
+    },
+    {
+      name: "Spring Boot",
+      category: "language",
+      level: 60,
+      iconName: "spring" as IconName,
+      desc: "Dependency injection, RESTful API development, and microservices architecture for scalable backend systems.",
+    },
+    {
+      name: "React.js",
+      category: "frontend",
+      level: 92,
+      iconName: "react" as IconName,
       desc: "Advanced state scheduling, custom compiler pipelines, component trees and responsive web paradigms.",
     },
     {
-      name: "Tailwind CSS / Layouts",
-      category: "design",
-      level: 98,
-      icon: Layers,
-      desc: "Stark monochrome layout optimization, custom typography hierarchies, extreme variable fluid styling.",
-    },
-    {
-      name: "Node.js / Express",
+      name: "Node.js",
       category: "backend",
       level: 88,
-      icon: Server,
+      iconName: "nodejs" as IconName,
       desc: "Secure rest routing, file-system buffers, lazy sdk loaders, and persistent memory caching.",
     },
     {
-      name: "Vector Canvas Math",
-      category: "ai",
-      level: 90,
-      icon: Cpu,
-      desc: "Mathematical interpolation, trigonometry matrix calculation, low-latency render loops.",
+      name: "Tailwind CSS",
+      category: "design",
+      level: 95,
+      iconName: "tailwindcss" as IconName,
+      desc: "Stark monochrome layout optimization, custom typography hierarchies, extreme variable fluid styling.",
+    },
+    {
+      name: "PostgreSQL",
+      category: "database",
+      level: 85,
+      iconName: "postgresql" as IconName,
+      desc: "Advanced query optimization, transaction management, and data modeling for relational databases.",
+    },
+    {
+      name: "MySQL",
+      category: "database",
+      level: 85,
+      iconName: "mysql" as IconName,
+      desc: "Advanced query optimization, transaction management, and data modeling for relational databases.",
+    },
+    {
+      name: "Supabase",
+      category: "database",
+      level: 85,
+      iconName: "supabase" as IconName,
+      desc: "Real-time database capabilities, authentication, and seamless integration with modern web applications.",
     },
   ];
 
@@ -150,66 +196,6 @@ export default function About({
     },
   ];
 
-  const handleDossierDownload = () => {
-    setDownloadProgress("compiling");
-    registerUserEvent("DOWNLOAD_DOSSIER", "resume_compilation");
-
-    // Immersive tactile simulation for assembling professional resume
-    setTimeout(() => {
-      setDownloadProgress("success");
-      const dossierContent = `
-=========================================
-CURRICULUM VITAE // ADITYA RAHMAN SYACH
-=========================================
-ROLE: BACKEND ENGINEER
-EMAIL: rahmansyachaditya@gmail.com
-ADDRESS: Jalan Merkuri Selatan XVIII No.14
-LINKEDIN: linkedin.com/in/aditya-rahman-syach
-PORTFOLIO: situssupercanggih.co.id
-
-PROFILE:
-I'm an undergraduate Computer Science student with a passion for backend development.
-Driven by a deep curiosity and a passion for clean code, I specialize in building
-scalable server-side logic and robust database architectures using Node.js,
-Express.js, and PostgreSQL.
-
-EDUCATIONS:
-- S1 Computer Science, Islamic State University SGD Bandung | 2024 - Present
-  GPA: 3.91
-
-EXPERIENCE:
-- General Secretary // BSO Dimensi Web (2025 - Present)
-  * Coordinate overall administration and governance of the organization.
-  * Serve as primary liaison for internal communication between divisions.
-  * Compile, archive, and distribute official organizational documents.
-
-- Member of Kastrad // HIMATIF UIN SGD Bandung (2024 - 2025)
-  * Provided advocacy and assistance to Computer Science students.
-  * Facilitated discussion forums for association members and Computer Science students.
-
-CERTIFICATIONS & EDUCATION PROGRAMS:
-- Fullstack Web Developer // Codingcamp Powered by DBS Foundation (Feb 2026 - Present)
-  * JavaScript Basics & Advanced: OOP and async workflows.
-  * Backend Development: Scalable architectures with Node.js & Express.
-  * API & Data Management: RESTful API and database design with PostgreSQL.
-  * Capstone Project (Rekapin): Real-world accounting and carbon emission tracking backend.
-
-=========================================
-STATUS: VERIFIED SECURE HANDSHAKE // OK
-=========================================
-      `;
-      const blob = new Blob([dossierContent], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "ADITYA_RAHMAN_RESUME.txt";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-    }, 2200);
-  };
-
   return (
     <section
       id="about"
@@ -233,57 +219,6 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
           <div className="space-y-6 font-sans text-sm text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
             <p>{t.about.p1}</p>
             <p>{t.about.p2}</p>
-          </div>
-
-          {/* Dossier Download Simulator */}
-          <div id="dossier-download-simulator" className="pt-4">
-            {downloadProgress === "idle" && (
-              <button
-                id="compile-resume-btn"
-                onClick={handleDossierDownload}
-                className="px-5 py-3 border border-black hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black font-mono text-xs tracking-widest transition-all duration-300 focus:outline-none flex items-center space-x-3"
-              >
-                <Terminal className="w-4 h-4" />
-                <span>{t.about.cvBtn.toUpperCase()}</span>
-              </button>
-            )}
-
-            {downloadProgress === "compiling" && (
-              <div className="border border-yellow-500/50 p-4 font-mono text-xs text-yellow-600 dark:text-yellow-400 space-y-2 max-w-md animate-pulse">
-                <div className="flex items-center space-x-2">
-                  <ShieldAlert className="w-4 h-4 animate-spin" />
-                  <span className="font-bold">
-                    ASSEMBLING SYSTEM DOSSIER...
-                  </span>
-                </div>
-                <div className="w-full bg-yellow-500/10 h-1.5 overflow-hidden">
-                  <div className="bg-yellow-500 h-full w-2/3 animate-progress-bar" />
-                </div>
-                <p className="text-[10px] text-yellow-600/70 dark:text-yellow-400/70">
-                  READING CHRONOLOGY // SEALING ENCRYPTED BLOB METADATA
-                </p>
-              </div>
-            )}
-
-            {downloadProgress === "success" && (
-              <div className="border border-gradient p-4 font-mono text-xs text-[#14b8a6] border-[#14b8a6] space-y-2 max-w-md">
-                <div className="flex items-center space-x-2">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="font-bold">DOSSIER BUFFER DEPLOYED</span>
-                </div>
-                <p className="text-[11px] leading-snug">
-                  SYSTEM_DOSSIER_CORE.txt has been transmitted successfully.
-                  Check your browser downloads directory.
-                </p>
-                <button
-                  id="recompile-cv-btn"
-                  onClick={() => setDownloadProgress("idle")}
-                  className="text-black dark:text-white underline text-[10px] block font-bold transition-all"
-                >
-                  RE-RUN PROTOCOL
-                </button>
-              </div>
-            )}
           </div>
         </div>
 
@@ -348,16 +283,9 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
                   PRIMARY focus
                 </p>
                 <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">
-                  Node.js & DevOps
+                  Backend Development
                 </p>
               </div>
-            </div>
-
-            <div className="pt-4 border-t border-black/10 dark:border-white/10 flex items-center space-x-3 text-[10px] font-mono text-gray-400">
-              <Cpu className="w-4 h-4 text-[#14b8a6] animate-pulse" />
-              <span>
-                Dossier indexing active under secure compiler G-SYS-83
-              </span>
             </div>
           </div>
         </div>
@@ -523,7 +451,6 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill) => {
-              const Icon = skill.icon;
               const isSelected = selectedSkill === skill.name;
               return (
                 <button
@@ -536,7 +463,7 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
                   className={`p-5 border text-left transition-all duration-300 group focus:outline-none relative overflow-hidden ${
                     isSelected
                       ? "bg-black border-black text-white dark:bg-white dark:border-white dark:text-black shadow-lg scale-[1.01]"
-                      : "border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 bg-neutral-50/50 dark:bg-neutral-900/15 hover:bg-neutral-100/50 dark:hover:bg-neutral-900/30"
+                      : "border-black/10 dark:border-white/10 hover:border-[#14b8a6] dark:hover:border-[#14b8a6] bg-neutral-50/50 dark:bg-neutral-900/15 hover:bg-[#14b8a6]/5 hover:dark:bg-[#14b8a6]/5"
                   }`}
                 >
                   <div className="flex items-center pointer-events-none mb-4">
@@ -544,13 +471,19 @@ STATUS: VERIFIED SECURE HANDSHAKE // OK
                       <div
                         className={`p-2 rounded border transition-colors duration-300 ${
                           isSelected
-                            ? "bg-neutral-900 border-neutral-800 dark:bg-neutral-100 dark:border-neutral-200 text-white dark:text-black"
-                            : "bg-white border-neutral-200 dark:bg-zinc-900 dark:border-neutral-800 text-neutral-500 group-hover:text-black dark:group-hover:text-white"
+                            ? "bg-neutral-900 border-neutral-800 dark:bg-neutral-100 dark:border-neutral-200"
+                            : "bg-white border-neutral-200 dark:bg-zinc-900 dark:border-neutral-800"
                         }`}
                       >
-                        <Icon className="w-5 h-5 shrink-0" />
+                        <StackIcon
+                          name={skill.iconName}
+                          className="w-5 h-5 shrink-0"
+                          variant="light"
+                        />
                       </div>
-                      <span className="font-sans font-extrabold text-sm tracking-tight">
+                      <span
+                        className={`font-sans font-extrabold text-sm tracking-tight transition-colors ${!isSelected && "group-hover:text-[#14b8a6]"}`}
+                      >
                         {skill.name}
                       </span>
                     </div>
