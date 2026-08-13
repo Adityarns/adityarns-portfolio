@@ -18,7 +18,7 @@ import {
 import { Language } from "../types";
 import { translations } from "../data";
 import StackIcon, { type IconName } from "tech-stack-icons";
-import dbsImg from "../assets/images/DBS.jpeg";
+import dbsImg from "../assets/images/DBS.jpg";
 import bsoLogo from "../assets/experience/bsoLogo.png";
 import bsoImg from "../assets/experience/bso.jpeg";
 import himatifLogo from "../assets/experience/HimatifLogo.png";
@@ -83,84 +83,98 @@ export default function About({
     {
       name: "JavaScript",
       category: "language",
-      level: 95,
+      level: 80,
       iconName: "js" as IconName,
-      desc: "ES6+, async/await workflows, prototypical inheritance, and advanced DOM manipulation.",
+      desc: "ES6+, asynchronous workflows, prototypical inheritance, and advanced DOM manipulation for interactive web applications.",
     },
     {
       name: "TypeScript",
       category: "language",
-      level: 95,
+      level: 80,
       iconName: "typescript" as IconName,
-      desc: "Static type checking, advanced generics, and seamless integration with React and Node.js.",
+      desc: "Static type checking, advanced generics, and seamless type-safe integration across full-stack architectures.",
     },
     {
       name: "Java",
       category: "language",
-      level: 60,
+      level: 40,
       iconName: "java" as IconName,
-      desc: "Object-oriented programming, multithreading, and seamless integration with web technologies.",
+      desc: "Object-oriented programming principles, enterprise application logic, and robust backend foundations.",
     },
     {
       name: "Spring Boot",
-      category: "language",
-      level: 60,
+      category: "backend",
+      level: 40,
       iconName: "spring" as IconName,
-      desc: "Dependency injection, RESTful API development, and microservices architecture for scalable backend systems.",
+      desc: "Dependency injection, structured RESTful API development, and scalable enterprise microservices architecture.",
     },
     {
       name: "React.js",
       category: "frontend",
-      level: 92,
+      level: 80,
       iconName: "react" as IconName,
-      desc: "Advanced state scheduling, custom compiler pipelines, component trees and responsive web paradigms.",
+      desc: "Component-driven architecture, advanced state management, custom hooks, and responsive UI development.",
+    },
+    {
+      name: "Next.js",
+      category: "fullstack",
+      level: 70,
+      iconName: "nextjs" as IconName,
+      desc: "Server-side rendering, static site generation, API routes, and optimized full-stack web application routing.",
     },
     {
       name: "Node.js",
       category: "backend",
-      level: 88,
+      level: 90,
       iconName: "nodejs" as IconName,
-      desc: "Secure rest routing, file-system buffers, lazy sdk loaders, and persistent memory caching.",
+      desc: "Asynchronous server-side event loops, secure RESTful API routing, middleware integration, and backend performance tuning.",
     },
     {
       name: "Tailwind CSS",
       category: "design",
-      level: 95,
+      level: 70,
       iconName: "tailwindcss" as IconName,
-      desc: "Stark monochrome layout optimization, custom typography hierarchies, extreme variable fluid styling.",
+      desc: "Utility-first styling, responsive design systems, custom configuration, and rapid modern UI prototyping.",
     },
     {
       name: "PostgreSQL",
       category: "database",
-      level: 85,
+      level: 80,
       iconName: "postgresql" as IconName,
-      desc: "Advanced query optimization, transaction management, and data modeling for relational databases.",
-    },
-    {
-      name: "MySQL",
-      category: "database",
-      level: 85,
-      iconName: "mysql" as IconName,
-      desc: "Advanced query optimization, transaction management, and data modeling for relational databases.",
+      desc: "Relational database design, complex query optimization, indexing strategies, and robust transaction management.",
     },
     {
       name: "Supabase",
       category: "database",
-      level: 85,
+      level: 80,
       iconName: "supabase" as IconName,
-      desc: "Real-time database capabilities, authentication, and seamless integration with modern web applications.",
+      desc: "Cloud-hosted PostgreSQL management, real-time data subscriptions, built-in auth, and edge functions.",
+    },
+    {
+      name: "Prisma",
+      category: "orm",
+      level: 70,
+      iconName: "prisma" as IconName,
+      desc: "Type-safe database client generation, intuitive schema migrations, and efficient relationship mapping.",
+    },
+    {
+      name: "Vercel",
+      category: "devops",
+      level: 80,
+      iconName: "vercel" as IconName,
+      desc: "Seamless frontend deployment, continuous integration pipelines, serverless functions, and production domain management.",
     },
   ];
 
   const milestones = [
     {
-      year: "2026 - PRESENT",
-      title: "Fullstack Web Developer",
+      year: "Feb 2026 - Jul 2026 ",
+      title: "Full-stack Web Developer Cohort",
       company: "Codingcamp Powered by DBS Foundation",
       side: "right",
       desc: {
-        en: "Advanced JavaScript, backend server architectures with Node.js & Express, relational modeling using PostgreSQL, clean code, and the capstone project Rekapin.",
-        id: "JavaScript tingkat lanjut, arsitektur server backend Node.js & Express, permodelan relasional dengan PostgreSQL, kode bersih, dan proyek capstone Rekapin.",
+        en: "Learn about Advanced JavaScript, backend server architectures with Node.js & Express, relational modeling using PostgreSQL, clean code, and the capstone project Rekapin.",
+        id: "Belajar mengenai JavaScript tingkat lanjut, arsitektur server backend Node.js & Express, permodelan relasional dengan PostgreSQL, kode bersih, dan proyek capstone Rekapin.",
       },
       icon: Code2,
       iconColor: "text-[#14b8a6]",
@@ -170,7 +184,7 @@ export default function About({
         "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
     },
     {
-      year: "2025 - PRESENT",
+      year: "Dec 2025 - PRESENT",
       title: "General Secretary",
       company: "BSO Dimensi Web",
       side: "left",
@@ -186,7 +200,7 @@ export default function About({
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
     },
     {
-      year: "2025 - 2026",
+      year: "Apr 2025 - Jan 2026",
       title: "Member",
       company: "KASTRAD HIMATIF",
       side: "right",
@@ -234,43 +248,43 @@ export default function About({
           id="about-system-specs"
           className="lg:col-span-6 flex flex-col justify-center"
         >
-          <div className="border border-black/10 dark:border-white/5 rounded-2xl p-6 md:p-8 bg-neutral-50/50 dark:bg-zinc-950/20 backdrop-blur-sm space-y-6">
-            <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-              <span className="font-mono text-[10px] text-[#14b8a6] font-bold uppercase tracking-widest">
+          <div className="border border-black dark:border-white/5 rounded-2xl p-6 md:p-8 bg-neutral-50/50 dark:bg-zinc-950/20 backdrop-blur-sm space-y-6">
+            <div className="flex items-center justify-between border-b border-black dark:border-white/10 pb-4">
+              <span className="font-mono text-[14px] text-[#14b8a6] font-bold uppercase tracking-widest">
                 Aditya's card
               </span>
-              <span className="font-mono text-[10px] text-[#14b8a6] font-bold">
-                STATUS: STANDBY
+              <span className="font-mono text-[14px] text-[#14b8a6] font-bold ">
+                STATUS: ACTIVE
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-y-4 gap-x-6">
               <div>
-                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">
-                  IDENTIFIER
+                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                  USERNAME
                 </p>
                 <p className="font-sans font-black text-sm text-black dark:text-white leading-tight">
                   Aditya Rahman Syach
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">
-                  SPECIALIZATION
+                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                  PRIMARY JOB
                 </p>
                 <p className="font-sans font-black text-sm text-[#14b8a6] leading-tight uppercase">
-                  Backend Architect
+                  Backend Engineer
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">
-                  ACADEMIC LEVEL
+                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                  MAJOR
                 </p>
                 <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">
                   Computer Science
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
                   INSTITUTION
                 </p>
                 <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">
@@ -278,19 +292,19 @@ export default function About({
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
                   SYSTEM METRIC (GPA)
                 </p>
                 <p className="font-sans font-black text-sm text-black dark:text-white leading-tight">
-                  3.91 / 4.00
+                  3.90 / 4.00
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[9px] text-gray-400 uppercase leading-none mb-1">
-                  PRIMARY focus
+                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                  SPECIALIZATION
                 </p>
                 <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">
-                  Backend Development
+                  Website development
                 </p>
               </div>
             </div>

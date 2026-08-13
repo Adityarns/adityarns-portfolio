@@ -11,7 +11,7 @@ export interface Project {
     id: string;
   };
   tags: string[];
-  category: "web" | "mobile" | "ai" | "hardware";
+  category: "web" | "mobile" | "ai";
   liveUrl?: string;
   githubUrl?: string;
   imageUrl?: string;

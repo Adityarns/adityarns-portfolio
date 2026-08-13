@@ -150,7 +150,7 @@ export default function Contact({
             <div className="space-y-4">
               <div>
                 <p className="text-gray-400 uppercase text-[9px]">
-                  // ADDRESS / ALAMAT
+                  [ ADDRESS || ALAMAT ]
                 </p>
                 <p className="text-black dark:text-white font-mono font-bold uppercase text-[12px]">
                   Jalan Merkuri Selatan XVIII No.14, Bandung, West Java, ID
@@ -158,7 +158,7 @@ export default function Contact({
               </div>
               <div>
                 <p className="text-gray-400 uppercase text-[9px]">
-                  // EMAIL CORRESPONDENCE
+                  [ MY EMAIL ]
                 </p>
                 <a
                   href="mailto:rahmansyachaditya@gmail.com"
@@ -169,7 +169,7 @@ export default function Contact({
               </div>
               <div>
                 <p className="text-gray-400 uppercase text-[9px]">
-                  // LINKEDIN CONNECTIONS
+                  [ LINKEDIN CONNECTIONS ]
                 </p>
                 <a
                   href="https://www.linkedin.com/in/aditya-rahman-syach"

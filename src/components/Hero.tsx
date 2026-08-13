@@ -7,7 +7,7 @@ import aditImage from "../assets/images/Adit.png";
 
 interface HeroProps {
   currentLang: Language;
-  scrollToSection: (id: string) => void;
+  scrollToSection: (id: string) => void;    
   registerUserEvent: (actionName: string, meta?: string) => void;
 }
 
@@ -18,13 +18,12 @@ export default function Hero({
 }: HeroProps) {
   const t = translations[currentLang];
 
-  // Dynamic typing simulator for developer roles starting with "Da"
   const [typedRole, setTypedRole] = useState("Da");
 
   useEffect(() => {
     const roles = ["Backend Engineer", "Backend Developer"];
     let roleIdx = 0;
-    let charIdx = 2; // start after 'Da'
+    let charIdx = 2; 
     let isDeleting = false;
     let typingTimer: NodeJS.Timeout;
 

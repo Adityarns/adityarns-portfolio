@@ -1,6 +1,7 @@
 import { Translation, Project, BlogPost } from "./types";
 import rekapinImg from "./assets/images/rekapin.png";
 import heyjiproImg from "./assets/images/heyjipro.png";
+import keslingImg from "./assets/images/Kesling.png";
 
 export const translations: Record<"en" | "id", Translation> = {
   en: {
@@ -22,11 +23,11 @@ export const translations: Record<"en" | "id", Translation> = {
     about: {
       title: "PROFILE",
       subtitle:
-        "A student developer striving for clean, efficient architectures.",
-      p1: "I'm an undergraduate Computer Science student with a passion for backend development. Driven by a deep curiosity and a passion for clean code, I specialize in building scalable server-side logic and robust database architectures using Node.js, Express.js, and PostgreSQL.",
-      p2: "I focus on building reliable server components, API systems, secure integrations, and high-performance databases, while maintaining visual clarity and simplicity in interface designs.",
+        "A student developer who loves crafting clean code, robust architectures, and bulletproof backend systems.",
+      p1: "Hey there! I am an undergraduate Computer Science student obsessed with how things tick behind the scenes. I fell in love with backend development because of the art involved in building scalable server logic and rock-solid database structures.",
+      p2: "To me, good code is not just about working—it has to be clean, maintainable, and efficient. Beyond server-side logic, I also enjoy piecing together interactive web interfaces that feel smooth and natural to use.",
       techStack: "TECH STACK",
-      experience: "EDUCATIONS & EXPERIENCE",
+      experience: "EDUCATION & EXPERIENCE",
       years: "years",
       cvBtn: "Download Resume.pdf",
     },
@@ -108,9 +109,9 @@ export const translations: Record<"en" | "id", Translation> = {
     about: {
       title: "PROFIL",
       subtitle:
-        "Mahasiswa pengembang yang mengupayakan arsitektur bersih dan efisien.",
-      p1: "Saya adalah mahasiswa S1 Computer Science yang memiliki ketertarikan tinggi dalam pengembangan backend. Didorong oleh rasa ingin tahu yang mendalam dan kecintaan pada kode yang bersih, saya berspesialisasi dalam membangun logika server-side yang scalable dan arsitektur database yang tangguh menggunakan Node.js, Express.js, dan PostgreSQL.",
-      p2: "Saya berfokus pada pembangunan komponen server yang andal, sistem API, integrasi yang aman, dan database berkinerja tinggi, sembari mempertahankan kesederhanaan dan kejelasan visual pada desain antarmuka.",
+        "Mahasiswa Computer Science yang hobi meracik kode bersih, arsitektur tangguh, dan sistem backend yang anti-ribet.",
+      p1: "Hai, saya mahasiswa S1 Computer Science yang terobsesi dengan bagaimana segala sesuatu bekerja di balik layar. Saya jatuh cinta pada dunia backend karena seninya dalam merancang logika server yang scalable dan struktur database yang kokoh.",
+      p2: "Bagi saya, kode yang bagus bukan cuma soal jalan, tapi juga rapi, mudah dirawat, dan efisien. Di luar urusan server-side, saya juga senang meracik antarmuka web yang interaktif dan nyaman dipandang mata.",
       techStack: "KAPABILITAS TEKNIS",
       experience: "PENDIDIKAN & PENGALAMAN",
       years: "tahun",
@@ -266,6 +267,45 @@ export const projectsData: Project[] = [
         "Mengembangkan struktur data dinamis menggunakan @ElementCollection untuk penyimpanan grid kustom profil pengguna.",
         "Menerapkan sistem autentikasi aman berbasis stateless JWT Token untuk memproteksi hak akses rute dan data sensitif pengguna.",
         "Membuat automated shell script Linux pada VPS untuk pemantauan utilisasi RAM, CPU, dan status port.",
+      ],
+    },
+  },
+  {
+    id: "proj-3",
+    title: {
+      en: "KESLING",
+      id: "KESLING",
+    },
+    description: {
+      en: "An application for reporting on room and environmental health at the Linggar Community Health Center (Puskesmas), Bandung Regency.",
+      id: "Aplikasi untuk melaporkan kesehatan ruangan dan lingkungan yang berada di Puskesmas Linggar Kabupaten Bandung",
+    },
+    tags: [
+      "TypeScript",
+      "React",
+      "NextJs",
+      "PostgreSql",
+      "Supabase",
+      "Tailwind CSS",
+      "Vercel",
+      "Prisma",
+    ],
+    category: "web",
+    githubUrl: "",
+    liveUrl: "https://www.kesling-linggar.web.id/",
+    imageUrl: keslingImg,
+    keyHighlights: {
+      en: [
+        "Architected and developed full-stack features using TypeScript and Next.js to deliver a high-performance, dynamic web application.",
+        "Engineered robust database schemas on PostgreSQL (Supabase Cloud) mapped efficiently with Prisma ORM for seamless data management.",
+        "Secured route access and sensitive user data by implementing a robust stateless JWT authentication system.",
+        "Streamlined the production release pipeline by successfully deploying and scaling the application on Vercel.",
+      ],
+      id: [
+        "Merancang dan mengembangkan fitur full-stack menggunakan TypeScript dan Next.js untuk menghadirkan aplikasi web yang dinamis dan berkinerja tinggi.",
+        "Merancang skema database yang andal pada PostgreSQL (Supabase Cloud) yang dipetakan secara efisien menggunakan Prisma ORM untuk pengelolaan data yang lancar.",
+        "Mengamankan hak akses rute dan data sensitif pengguna dengan mengimplementasikan sistem autentikasi JWT stateless yang tangguh.",
+        "Mengoptimalkan alur rilis produksi dengan berhasil melakukan deployment dan penskalaan aplikasi di Vercel.",
       ],
     },
   },

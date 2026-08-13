@@ -23,16 +23,15 @@ export default function Projects({
 }: ProjectsProps) {
   const t = translations[currentLang];
   const [activeCategory, setActiveCategory] = useState<
-    "all" | "web" | "mobile" | "ai" | "hardware"
+    "all" | "web" | "mobile" | "ai"
   >("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categoriesSet: ("all" | "web" | "mobile" | "ai" | "hardware")[] = [
+  const categoriesSet: ("all" | "web" | "mobile" | "ai")[] = [
     "all",
     "web",
     "ai",
     "mobile",
-    "hardware",
   ];
 
   const filteredProjects = projectsData.filter((p) => {

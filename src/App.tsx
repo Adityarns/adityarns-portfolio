@@ -12,14 +12,14 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [currentLang, setLang] = useState<Language>('id'); // Default to Indonesian
-  const [darkMode, setDarkMode] = useState(true); // Default to gorgeous high-end Dark Mode
+  const [currentLang, setLang] = useState<Language>('id'); 
+  const [darkMode, setDarkMode] = useState(true); 
   const [activeSection, setActiveSection] = useState('hero');
   
-  // Real-time visitor logs tracker fed into Dynamic Telemetry Analytics panel
+
   const [userEvents, setUserEvents] = useState<{ time: string; action: string; meta?: string }[]>([]);
   
-  // Side drawer visibility togglers
+ 
   const [showTelemetry, setShowTelemetry] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
 
