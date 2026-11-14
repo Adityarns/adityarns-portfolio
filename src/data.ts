@@ -2,6 +2,7 @@ import { Translation, Project, BlogPost } from "./types";
 import rekapinImg from "./assets/images/rekapin.png";
 import heyjiproImg from "./assets/images/heyjipro.png";
 import keslingImg from "./assets/images/Kesling.png";
+import lspImg from "./assets/images/Lsp.png";
 
 export const translations: Record<"en" | "id", Translation> = {
   en: {
@@ -24,10 +25,10 @@ export const translations: Record<"en" | "id", Translation> = {
       title: "PROFILE",
       subtitle:
         "A student developer who loves crafting clean code, robust architectures, and bulletproof backend systems.",
-      p1: "Hey there! I am an undergraduate Computer Science student obsessed with how things tick behind the scenes. I fell in love with backend development because of the art involved in building scalable server logic and rock-solid database structures.",
+      p1: "Hey there! I am an undergraduate Informatics Engineering student obsessed with how things tick behind the scenes. I fell in love with backend development because of the art involved in building scalable server logic and rock-solid database structures.",
       p2: "To me, good code is not just about working—it has to be clean, maintainable, and efficient. Beyond server-side logic, I also enjoy piecing together interactive web interfaces that feel smooth and natural to use.",
       techStack: "TECH STACK",
-      experience: "EDUCATION & EXPERIENCE",
+      experience: "EXPERIENCE",
       years: "years",
       cvBtn: "Download Resume.pdf",
     },
@@ -108,12 +109,11 @@ export const translations: Record<"en" | "id", Translation> = {
     },
     about: {
       title: "PROFIL",
-      subtitle:
-        "Mahasiswa Computer Science yang hobi meracik kode bersih, arsitektur tangguh, dan sistem backend yang anti-ribet.",
-      p1: "Hai, saya mahasiswa S1 Computer Science yang terobsesi dengan bagaimana segala sesuatu bekerja di balik layar. Saya jatuh cinta pada dunia backend karena seninya dalam merancang logika server yang scalable dan struktur database yang kokoh.",
+      subtitle: "",
+      p1: "Hai, saya mahasiswa S1 Teknik Informatika yang terobsesi dengan bagaimana segala sesuatu bekerja di balik layar. Saya jatuh cinta pada dunia backend karena seninya dalam merancang logika server yang scalable dan struktur database yang kokoh.",
       p2: "Bagi saya, kode yang bagus bukan cuma soal jalan, tapi juga rapi, mudah dirawat, dan efisien. Di luar urusan server-side, saya juga senang meracik antarmuka web yang interaktif dan nyaman dipandang mata.",
       techStack: "KAPABILITAS TEKNIS",
-      experience: "PENDIDIKAN & PENGALAMAN",
+      experience: "PENGALAMAN",
       years: "tahun",
       cvBtn: "Unduh Resume.pdf",
     },
@@ -306,6 +306,45 @@ export const projectsData: Project[] = [
         "Merancang skema database yang andal pada PostgreSQL (Supabase Cloud) yang dipetakan secara efisien menggunakan Prisma ORM untuk pengelolaan data yang lancar.",
         "Mengamankan hak akses rute dan data sensitif pengguna dengan mengimplementasikan sistem autentikasi JWT stateless yang tangguh.",
         "Mengoptimalkan alur rilis produksi dengan berhasil melakukan deployment dan penskalaan aplikasi di Vercel.",
+      ],
+    },
+  },
+  {
+    id: "proj-4",
+    title: {
+      en: "LSP UIN SGD Platform",
+      id: "Platform LSP UIN SGD",
+    },
+    description: {
+      en: "An end-to-end BNSP-based competency certification platform for managing assessments, document verifications, dynamic PDF generation, and candidate workflows.",
+      id: "Platform sertifikasi kompetensi berbasis BNSP end-to-end untuk mengelola asesmen, verifikasi dokumen, pembuatan PDF dinamis, dan alur kerja asesi/asesor.",
+    },
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "Prisma",
+      "PostgreSQL",
+      "Supabase",
+      "Tailwind CSS",
+      "Docker",
+      "Puppeteer",
+    ],
+    category: "web",
+    githubUrl: "",
+    liveUrl: "https://lsp-uin-sgd.vercel.app/login", // Isi dengan URL jika sudah live
+    imageUrl: lspImg, // Ganti/pastikan variabel gambar LSP sudah di-import
+    keyHighlights: {
+      en: [
+        "Architected and deployed a full-stack BNSP competency certification platform from scratch using Next.js (App Router) and TypeScript.",
+        "Implemented Role-Based Access Control (RBAC) via NextAuth.js to secure workflows across Admin, Assessor, and Candidate roles.",
+        "Built a headless PDF generation engine with Puppeteer and Chromium for dynamic exports of assessment forms, assignment letters, and certificates.",
+        "Integrated Supabase Storage for secure asset management and containerized the application using Docker Compose for VPS deployment.",
+      ],
+      id: [
+        "Merancang dan memublikasikan platform sertifikasi kompetensi BNSP end-to-end dari awal menggunakan Next.js (App Router) dan TypeScript.",
+        "Mengimplementasikan Role-Based Access Control (RBAC) via NextAuth.js untuk mengamankan hak akses peran Admin, Asesor, dan Asesi.",
+        "Membangun generator PDF otomatis menggunakan Puppeteer dan Chromium untuk ekspor dinamis formulir asesmen, surat tugas, dan sertifikat.",
+        "Mengintegrasikan Supabase Storage untuk manajemen aset aman serta melakukan kontainerisasi aplikasi menggunakan Docker Compose untuk deployment di VPS.",
       ],
     },
   },

@@ -23,6 +23,11 @@ import bsoLogo from "../assets/experience/bsoLogo.png";
 import bsoImg from "../assets/experience/bso.jpeg";
 import himatifLogo from "../assets/experience/HimatifLogo.png";
 import himatifImg from "../assets/experience/himatif.jpeg";
+import dbsLogo from "../assets/experience/dbsicon.jpg";
+import asahLogo from "../assets/experience/asahlogo.jpeg";
+import lspImage from "../assets/experience/lspImage.jpeg";
+import lspLogo from "../assets/experience/logo-lsp.png";
+import asahImg from "../assets/experience/AsahImg.png";
 
 interface AboutProps {
   currentLang: Language;
@@ -168,15 +173,47 @@ export default function About({
 
   const milestones = [
     {
+      year: "Jul 2026 - Nov 2026",
+      title: "Fullstack Web Developer",
+      company: "Lembaga Sertifikasi UIN SGD Bandung",
+      side: "left",
+      desc: {
+        en: "Engineered a fullstack BNSP competency certification platform using Next.js (App Router), TypeScript, Prisma ORM, and PostgreSQL. Implemented RBAC, automated PDF engine with Puppeteer, Supabase Storage, and Docker deployment.",
+        id: "Mengembangkan platform sertifikasi kompetensi BNSP end-to-end menggunakan Next.js (App Router), TypeScript, Prisma ORM, dan PostgreSQL. Mengimplementasikan RBAC, generator PDF otomatis via Puppeteer, Supabase Storage, dan penyebaran Docker.",
+      },
+      icon: lspLogo,
+      iconColor: "text-[#14b8a6]",
+      iconBg: "bg-[#14b8a6]/10 border-[#14b8a6]/20",
+      localImg: lspImage, // opsional: ganti dengan aset gambar LSP jika ada
+      fallbackImg:
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+      year: "Aug 2026 - Present",
+      title: "Fullstack Web Developer Cohort",
+      company: "Asah Led By Dicoding",
+      side: "left",
+      desc: {
+        en: "Deepening expertise in scalable backend server architectures, advanced asynchronous handling, secure production-ready RESTful APIs, and database query optimization with PostgreSQL.",
+        id: "Mendalami arsitektur server backend berskala besar, penanganan asinkron tingkat lanjut, pengembangan RESTful API aman siap produksi, serta optimasi kueri basis data PostgreSQL.",
+      },
+      icon: asahLogo,
+      iconColor: "text-[#14b8a6]",
+      iconBg: "bg-[#14b8a6]/10 border-[#14b8a6]/20",
+      localImg: asahImg,
+      fallbackImg:
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    },
+    {
       year: "Feb 2026 - Jul 2026 ",
-      title: "Full-stack Web Developer Cohort",
+      title: "FullStack Web Developer Cohort",
       company: "Codingcamp Powered by DBS Foundation",
-      side: "right",
+      side: "left",
       desc: {
         en: "Learn about Advanced JavaScript, backend server architectures with Node.js & Express, relational modeling using PostgreSQL, clean code, and the capstone project Rekapin.",
         id: "Belajar mengenai JavaScript tingkat lanjut, arsitektur server backend Node.js & Express, permodelan relasional dengan PostgreSQL, kode bersih, dan proyek capstone Rekapin.",
       },
-      icon: Code2,
+      icon: dbsLogo,
       iconColor: "text-[#14b8a6]",
       iconBg: "bg-[#14b8a6]/10 border-[#14b8a6]/20",
       localImg: dbsImg,
@@ -203,7 +240,7 @@ export default function About({
       year: "Apr 2025 - Jan 2026",
       title: "Member",
       company: "KASTRAD HIMATIF",
-      side: "right",
+      side: "left",
       desc: {
         en: "Focused on student advocacy, strategically communicating student perspectives to department authorities to foster a better academic environment.",
         id: "Fokus pada advokasi mahasiswa, secara strategis mengomunikasikan perspektif mahasiswa ke birokrasi jurusan untuk menciptakan lingkungan akademis yang lebih baik.",
@@ -222,7 +259,7 @@ export default function About({
       id="about"
       className="py-24 border-t border-black/10 dark:border-white/10 bg-white dark:bg-black text-black dark:text-white"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left Side: Editorial Typography & Blueprint */}
         <div
           id="about-details-col"
@@ -232,78 +269,76 @@ export default function About({
             <h2 className="text-3xl md:text-5xl font-sans font-black tracking-tight uppercase leading-none">
               {t.about.title}
             </h2>
-            <p className="font-mono text-xs text-gray-600 dark:text-neutral-400 italic">
-              {t.about.subtitle}
-            </p>
           </div>
 
-          <div className="space-y-6 font-sans text-sm text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
+          <div className="space-y-6 font-sans text-[16px] text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
             <p>{t.about.p1}</p>
             <p>{t.about.p2}</p>
           </div>
         </div>
 
-        {/* Right Side: Specifications / System Specs details */}
+        {/* left Side: Specifications / System Specs details */}
         <div
           id="about-system-specs"
           className="lg:col-span-6 flex flex-col justify-center"
         >
           <div className="border border-black dark:border-white/5 rounded-2xl p-6 md:p-8 bg-neutral-50/50 dark:bg-zinc-950/20 backdrop-blur-sm space-y-6">
             <div className="flex items-center justify-between border-b border-black dark:border-white/10 pb-4">
-              <span className="font-mono text-[14px] text-[#14b8a6] font-bold uppercase tracking-widest">
+              <span className="font-mono text-[16px] text-[#14b8a6] font-bold uppercase tracking-widest">
                 Aditya's card
               </span>
-              <span className="font-mono text-[14px] text-[#14b8a6] font-bold ">
+              <span className="font-mono text-[16px] text-[#14b8a6] font-bold ">
                 STATUS: ACTIVE
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-y-4 gap-x-6">
               <div>
-                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[14px] text-gray-400 uppercase leading-none mb-1">
                   USERNAME
                 </p>
-                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight">
+                <p className="font-sans font-black text-[14px] text-black dark:text-white leading-tight">
                   Aditya Rahman Syach
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[14px] text-gray-400 uppercase leading-none mb-1">
                   PRIMARY JOB
                 </p>
-                <p className="font-sans font-black text-sm text-[#14b8a6] leading-tight uppercase">
+                <p className="font-sans font-black text-[14px] text-[#14b8a6] leading-tight uppercase">
                   Backend Engineer
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[14px] text-gray-400 uppercase leading-none mb-1">
                   MAJOR
                 </p>
-                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">
-                  Computer Science
+                <p className="font-sans font-black text-[14px] text-black dark:text-white leading-tight uppercase">
+                  INFORMATICS ENGINEERING
                 </p>
+                S
               </div>
               <div>
-                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[14px] text-gray-400 uppercase leading-none mb-1">
                   INSTITUTION
                 </p>
-                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">
+                <p className="font-sans font-black text-[14px] text-black dark:text-white leading-tight uppercase">
                   UIN SGD Bandung
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[14px] text-gray-400 uppercase leading-none mb-1">
                   SYSTEM METRIC (GPA)
                 </p>
-                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight">
+                <p className="font-sans font-black text-[14px] text-black dark:text-white leading-tight">
                   3.90 / 4.00
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[10px] text-gray-400 uppercase leading-none mb-1">
+                <p className="font-mono text-[14px] text-gray-400 uppercase leading-none mb-1">
                   SPECIALIZATION
                 </p>
-                <p className="font-sans font-black text-sm text-black dark:text-white leading-tight uppercase">
+                <p className="font-sans font-black text-[14px] text-black dark:text-white leading-tight uppercase">
                   Website development
                 </p>
               </div>
@@ -313,7 +348,7 @@ export default function About({
       </div>
 
       {/* Modern Alternating Timeline Section */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-24 pt-16 border-t border-black/10 dark:border-white/10">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 mt-24 pt-16 border-t border-black/10 dark:border-white/10">
         <div className="space-y-1.5 mb-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center space-x-3 justify-center md:justify-start">
@@ -348,20 +383,22 @@ export default function About({
 
                   {/* Left Column Box */}
                   <div
-                    className={`w-full md:w-[46%] ${isLeft ? "order-1" : "order-2 md:order-1"}`}
+                    className={`w-full md:w-[46%] ${
+                      isLeft ? "order-1" : "order-2 md:order-1"
+                    }`}
                   >
                     {isLeft ? (
                       /* Card Content */
                       <div className="group bg-neutral-950 dark:bg-zinc-950 text-white rounded-2xl p-6 md:p-8 shadow-xl border border-white/5 hover:border-[#14b8a6]/30 transition-all duration-300 relative">
                         <div className="flex items-start space-x-4">
                           <div
-                            className={`p-3 rounded-full flex items-center justify-center ${item.iconBg} ${item.iconColor} shrink-0`}
+                            className={`p-3 rounded-xl flex items-center justify-center ${item.iconBg} ${item.iconColor} shrink-0`}
                           >
                             {isImageIcon ? (
                               <img
                                 src={item.icon as string}
                                 alt={item.company}
-                                className="w-10 h-10 object-contain"
+                                className="w-15 h-13 object-contain"
                               />
                             ) : (
                               IconComponent && (
@@ -373,10 +410,10 @@ export default function About({
                             <h4 className="font-sans font-black text-base text-white tracking-tight leading-tight uppercase">
                               {item.title}
                             </h4>
-                            <p className="font-sans font-bold text-xs text-[#14b8a6] uppercase tracking-wide">
+                            <p className="font-sans font-bold text-[16px] text-[#14b8a6] uppercase tracking-wide">
                               {item.company}
                             </p>
-                            <p className="font-mono text-[10px] text-gray-400">
+                            <p className="font-mono text-[14px] text-gray-400">
                               {item.year}
                             </p>
                           </div>
@@ -400,11 +437,13 @@ export default function About({
 
                   {/* Right Column Box */}
                   <div
-                    className={`w-full md:w-[46%] ${isLeft ? "order-2" : "order-1 md:order-2"}`}
+                    className={`w-full md:w-[40%] ${
+                      isLeft ? "order-2" : "order-1 md:order-2"
+                    }`}
                   >
                     {isLeft ? (
                       /* Image Box */
-                      <div className="rounded-2xl overflow-hidden shadow-xl border border-black/5 dark:border-white/5 bg-neutral-100 dark:bg-neutral-900 group aspect-[4/3] md:aspect-[3/2]">
+                      <div className="rounded-2xl overflow-hidden shadow-xl border border-black/5 dark:border-white/5 bg-neutral-100 dark:bg-neutral-900 group aspect-[3/2] md:aspect-[3/2]">
                         <ImageWithFallback
                           src={item.localImg}
                           fallbackSrc={item.fallbackImg}
@@ -457,7 +496,7 @@ export default function About({
       </div>
 
       {/* Decoupled Interactive Technical Capabilities Section */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-20 pt-16 border-t border-black/10 dark:border-white/10">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 mt-20 pt-16 border-t border-black/10 dark:border-white/10">
         <div className="space-y-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="space-y-1.5">
@@ -476,7 +515,9 @@ export default function About({
               return (
                 <button
                   key={skill.name}
-                  id={`skill-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                  id={`skill-${skill.name
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]/g, "-")}`}
                   onClick={() => {
                     setSelectedSkill(isSelected ? null : skill.name);
                     registerUserEvent("CLICK_SKILL_MATRIX", skill.name);
@@ -503,7 +544,9 @@ export default function About({
                         />
                       </div>
                       <span
-                        className={`font-sans font-extrabold text-sm tracking-tight transition-colors ${!isSelected && "group-hover:text-[#14b8a6]"}`}
+                        className={`font-sans font-extrabold text-sm tracking-tight transition-colors ${
+                          !isSelected && "group-hover:text-[#14b8a6]"
+                        }`}
                       >
                         {skill.name}
                       </span>
@@ -513,7 +556,9 @@ export default function About({
                   {/* Progress Line */}
                   <div className="w-full bg-neutral-200 dark:bg-neutral-800 h-[2px] overflow-hidden pointer-events-none">
                     <div
-                      className={`h-full transition-all duration-500 ${isSelected ? "bg-white dark:bg-black" : "bg-[#14b8a6]"}`}
+                      className={`h-full transition-all duration-500 ${
+                        isSelected ? "bg-white dark:bg-black" : "bg-[#14b8a6]"
+                      }`}
                       style={{ width: `${skill.level}%` }}
                     />
                   </div>

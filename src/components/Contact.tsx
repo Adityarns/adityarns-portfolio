@@ -52,7 +52,7 @@ export default function Contact({
   }, []);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -74,7 +74,7 @@ export default function Contact({
     setFormStatus("transmitting");
     registerUserEvent(
       "SEND_MESSAGE_ATTEMPT",
-      `${formData.name} <${formData.email}>`,
+      `${formData.name} <${formData.email}>`
     );
 
     // Simulate cryptographic payload transmissions
@@ -92,7 +92,7 @@ export default function Contact({
         setSentPayloads(currentPayloads);
         localStorage.setItem(
           "system_sent_payloads",
-          JSON.stringify(currentPayloads),
+          JSON.stringify(currentPayloads)
         );
       } catch (e) {
         console.warn("LocalStorage save failed", e);
@@ -121,7 +121,7 @@ export default function Contact({
       id="contact"
       className="py-24 border-t border-black/10 dark:border-white/10 bg-white dark:bg-black text-black dark:text-white"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left Column: Descriptive metadata and details */}
         <div id="contact-details-col" className="lg:col-span-6 space-y-6">
           <div className="space-y-4">

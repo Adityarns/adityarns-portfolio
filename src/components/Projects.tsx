@@ -49,7 +49,7 @@ export default function Projects({
       id="projects"
       className="py-24 border-t border-black/10 dark:border-white/10 bg-white dark:bg-black text-black dark:text-white"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 space-y-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-4">
@@ -262,7 +262,7 @@ export default function Projects({
                             onClick={() =>
                               registerUserEvent(
                                 "LAUNCH_CODEBASE",
-                                selectedProject.id,
+                                selectedProject.id
                               )
                             }
                             className="flex-1  px-5 py-2.5 bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 font-mono text-[11px] tracking-widest font-bold flex items-center justify-center space-x-2 transition-all"
@@ -279,7 +279,7 @@ export default function Projects({
                             onClick={() =>
                               registerUserEvent(
                                 "LAUNCH_MODULE_URL",
-                                selectedProject.id,
+                                selectedProject.id
                               )
                             }
                             className="flex-1  px-5 py-2.5 border border-black/20 hover:border-black dark:border-white/10 dark:hover:border-white text-black dark:text-white font-mono text-[11px] tracking-widest flex items-center justify-center space-x-2 transition-all"
@@ -322,7 +322,7 @@ export default function Projects({
                                   </span>
                                   <span>{highlight}</span>
                                 </li>
-                              ),
+                              )
                             )}
                           </ul>
                         </div>

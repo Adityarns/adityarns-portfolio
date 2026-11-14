@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ClickSpark from "@/components/ClickSpark";
 import {
   Menu,
   X,
@@ -82,9 +83,9 @@ export default function Header({
         <button
           id="logo-btn"
           onClick={() => handleNavClick("hero")}
-          className="font-sans text-lg md:text-xl tracking-tight font-black text-black dark:text-white flex items-center space-x-1 hover:opacity-80 transition-all duration-300 focus:outline-none"
+          className="font-sans text-[18px] md:text-xl tracking-tight font-black text-black dark:text-white flex items-center space-x-1 hover:text-[#14b8a6] transition-all duration-300 focus:outline-none"
         >
-          <span className="font-extrabold">Portfolio</span>
+          <span className="font-extrabold">Adityarns</span>
           <FileText className="w-4.5 h-4.5 text-black dark:text-white shrink-0" />
         </button>
 
@@ -94,15 +95,24 @@ export default function Header({
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`font-sans text-xs lg:text-[13px] font-medium tracking-tight transition-all duration-300 relative py-1 focus:outline-none ${
+              className={`font-sans text-xs lg:text-[16px] font-medium tracking-tight transition-all duration-300 relative py-1 focus:outline-none ${
                 activeSection === item.id
-                  ? "text-black dark:text-white font-bold"
+                  ? "text-[#14b8a6]  font-bold"
                   : "text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white"
               }`}
             >
-              {item.label}
+              <ClickSpark
+                sparkColor="#fff"
+                shape="line"
+                sparkCount={8}
+                sparkSize={16}
+                sparkRadius={50}
+                duration={500}
+              >
+                {item.label}
+              </ClickSpark>
               {activeSection === item.id && (
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black dark:bg-white rounded-full animate-scale-x" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#14b8a6]  rounded-full animate-scale-x" />
               )}
             </button>
           ))}
@@ -122,7 +132,16 @@ export default function Header({
               className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-200"
               title="GitHub"
             >
-              <Github className="w-4 h-4" />
+              <ClickSpark
+                sparkColor="#fff"
+                shape="line"
+                sparkCount={8}
+                sparkSize={16}
+                sparkRadius={50}
+                duration={500}
+              >
+                <Github className="w-6 h-6" />
+              </ClickSpark>
             </a>
             <a
               href="https://www.linkedin.com/in/aditya-rahman-syach"
@@ -131,7 +150,16 @@ export default function Header({
               className="text-neutral-600 dark:text-neutral-400 hover:text-[#0077b5] dark:hover:text-[#0077b5] transition-colors duration-200"
               title="LinkedIn"
             >
-              <Linkedin className="w-4 h-4" />
+              <ClickSpark
+                sparkColor="#fff"
+                shape="line"
+                sparkCount={8}
+                sparkSize={16}
+                sparkRadius={50}
+                duration={500}
+              >
+                <Linkedin className="w-6 h-6" />
+              </ClickSpark>
             </a>
             <a
               href="https://www.instagram.com/adityarns_"
@@ -140,7 +168,16 @@ export default function Header({
               className="text-neutral-600 dark:text-neutral-400 hover:text-[#e1306c] dark:hover:text-[#e1306c] transition-colors duration-200"
               title="Instagram"
             >
-              <Instagram className="w-4 h-4" />
+              <ClickSpark
+                sparkColor="#fff"
+                shape="line"
+                sparkCount={8}
+                sparkSize={16}
+                sparkRadius={50}
+                duration={500}
+              >
+                <Instagram className="w-6 h-6" />
+              </ClickSpark>
             </a>
           </div>
 
@@ -150,8 +187,17 @@ export default function Header({
             onClick={() => setLang(currentLang === "en" ? "id" : "en")}
             className="p-1 px-2.5 rounded-full border border-neutral-200 dark:border-neutral-800 text-gray-500 dark:text-gray-400 hover:border-black dark:hover:border-white transition-all flex items-center space-x-1 font-mono text-[10px] uppercase tracking-wider cursor-pointer"
           >
-            <Globe className="w-3.5 h-3.5" />
-            <span>{currentLang}</span>
+            <Globe className="w-6 h-6" />
+            <ClickSpark
+              sparkColor="#fff"
+              shape="line"
+              sparkCount={8}
+              sparkSize={16}
+              sparkRadius={50}
+              duration={500}
+            >
+              <span>{currentLang}</span>
+            </ClickSpark>
           </button>
 
           {/* Dark / Light Toggle */}
@@ -161,11 +207,20 @@ export default function Header({
             className="p-1.5 rounded-full border border-neutral-200 dark:border-neutral-800 text-gray-500 dark:text-gray-400 hover:border-black dark:hover:border-white transition-all cursor-pointer"
             title="Toggle Theme"
           >
-            {darkMode ? (
-              <Sun className="w-4 h-4" />
-            ) : (
-              <Moon className="w-4 h-4" />
-            )}
+            <ClickSpark
+              sparkColor="#fff"
+              shape="line"
+              sparkCount={8}
+              sparkSize={16}
+              sparkRadius={50}
+              duration={500}
+            >
+              {darkMode ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
+            </ClickSpark>
           </button>
         </div>
 

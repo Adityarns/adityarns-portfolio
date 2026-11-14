@@ -4,10 +4,11 @@ import { Terminal, Cpu, ArrowRight } from "lucide-react";
 import { Language } from "../types";
 import { translations } from "../data";
 import aditImage from "../assets/images/Adit.png";
+import ClickSpark from "@/components/ClickSpark";
 
 interface HeroProps {
   currentLang: Language;
-  scrollToSection: (id: string) => void;    
+  scrollToSection: (id: string) => void;
   registerUserEvent: (actionName: string, meta?: string) => void;
 }
 
@@ -21,9 +22,9 @@ export default function Hero({
   const [typedRole, setTypedRole] = useState("Da");
 
   useEffect(() => {
-    const roles = ["Backend Engineer", "Backend Developer"];
+    const roles = ["Backend Engineer", "Website Developer"];
     let roleIdx = 0;
-    let charIdx = 2; 
+    let charIdx = 2;
     let isDeleting = false;
     let typingTimer: NodeJS.Timeout;
 
@@ -114,9 +115,10 @@ export default function Hero({
             transition={{ duration: 0.8, delay: 0.25 }}
             className="text-neutral-500 dark:text-neutral-400 text-sm md:text-base font-sans max-w-md leading-relaxed pr-4"
           >
-            Computer Science student with a passion for backend development.
-            Driven by deep curiosity and a passion for clean code, I build
-            scalable server-side systems and robust database architectures.
+            Informatics Engineering student with a passion for backend
+            development. Driven by deep curiosity and a passion for clean code,
+            I build scalable server-side systems and robust database
+            architectures.
           </motion.p>
 
           {/* Interactive CTAs styled like Screenshot */}
@@ -134,17 +136,36 @@ export default function Hero({
               }}
               className="px-6 py-2.5 bg-neutral-950 hover:bg-[#14b8a6] dark:bg-white dark:text-black dark:hover:bg-[#14b8a6] text-white font-sans text-xs md:text-sm font-bold tracking-tight rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] focus:outline-none cursor-pointer"
             >
-              About Me
+              <ClickSpark
+                sparkColor="#fff"
+                shape="line"
+                sparkCount={8}
+                sparkSize={16}
+                sparkRadius={50}
+                duration={500}
+              >
+                About Me
+              </ClickSpark>
             </button>
+
             <button
               id="hero-downscroll-btn"
               onClick={() => {
                 registerUserEvent("CLICK_HERO_PORTFOLIO");
-                scrollToSection("projects");
+                window.open("/CV_Anda.pdf", "_blank", "noopener,noreferrer");
               }}
               className="px-6 py-2.5 bg-neutral-950 hover:bg-[#14b8a6] dark:bg-white dark:text-black dark:hover:bg-[#14b8a6] text-white font-sans text-xs md:text-sm font-bold tracking-tight rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] focus:outline-none cursor-pointer"
             >
-              My Projects
+              <ClickSpark
+                sparkColor="#fff"
+                shape="line"
+                sparkCount={8}
+                sparkSize={16}
+                sparkRadius={50}
+                duration={500}
+              >
+                Curiculum Vitae
+              </ClickSpark>
             </button>
           </motion.div>
         </div>
