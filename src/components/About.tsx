@@ -316,7 +316,6 @@ export default function About({
                 <p className="font-sans font-black text-[14px] text-black dark:text-white leading-tight uppercase">
                   INFORMATICS ENGINEERING
                 </p>
-                S
               </div>
               <div>
                 <p className="font-mono text-[14px] text-gray-400 uppercase leading-none mb-1">
