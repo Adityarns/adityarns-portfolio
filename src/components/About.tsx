@@ -24,7 +24,7 @@ import bsoImg from "../assets/experience/bso.jpeg";
 import himatifLogo from "../assets/experience/HimatifLogo.png";
 import himatifImg from "../assets/experience/himatif.jpeg";
 import dbsLogo from "../assets/experience/dbsicon.jpg";
-import asahLogo from "../assets/experience/asahlogo.jpeg";
+import asahLogo from "../assets/experience/asahLogo.jpeg";
 import lspImage from "../assets/experience/lspImage.jpeg";
 import lspLogo from "../assets/experience/logo-lsp.png";
 import asahImg from "../assets/experience/AsahImg.png";
